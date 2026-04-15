@@ -616,10 +616,13 @@ footer {
             max-width: 780px !important;
             margin: 0 auto !important;
           }
-          #rga-portfolio-grid .portfolio-card {
+          #rga-portfolio-grid .portfolio-card,
+          #rga-portfolio-grid .portfolio-card:first-child {
             aspect-ratio: 1 / 1 !important;
             width: 100% !important;
             height: auto !important;
+            grid-column: auto !important;
+            grid-row: auto !important;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 0 0 1px rgba(0,0,0,0.06) !important;
           }
           #rga-portfolio-grid .portfolio-thumb {
