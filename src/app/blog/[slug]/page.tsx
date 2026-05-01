@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllPosts, getPostBySlug, markdownToHtml } from '@/lib/blog';
 
+// Return 404 for slugs not in generateStaticParams
+export const dynamicParams = false;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

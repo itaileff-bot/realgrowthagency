@@ -19,15 +19,35 @@ export interface BlogPost {
   excerpt: string;
 }
 
+// Strip date prefix (YYYY-MM-DD-) from filename to create clean URL slugs
+function filenameToSlug(filename: string): string {
+  return filename.replace(/\.md$/, '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+}
+
+// Map clean slugs back to filenames for lookup
+function getSlugToFileMap(): Map<string, string> {
+  const files = fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.md'));
+  const map = new Map<string, string>();
+  for (const file of files) {
+    map.set(filenameToSlug(file), file);
+  }
+  return map;
+}
+
 export function getPostSlugs(): string[] {
   const files = fs.readdirSync(postsDirectory);
   return files
     .filter((file) => file.endsWith('.md'))
-    .map((file) => file.replace(/\.md$/, ''));
+    .map((file) => filenameToSlug(file));
 }
 
 export function getPostBySlug(slug: string): BlogPost {
-  const fullPath = path.join(postsDirectory, `${slug}.md`);
+  const slugMap = getSlugToFileMap();
+  const filename = slugMap.get(slug);
+  if (!filename) {
+    throw new Error(`Blog post not found: ${slug}`);
+  }
+  const fullPath = path.join(postsDirectory, filename);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
