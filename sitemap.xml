@@ -2,32 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.realgrowthagency.com/</loc>
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.realgrowthagency.com/#services</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.realgrowthagency.com/blog</loc>
+    <lastmod>2026-05-20</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.realgrowthagency.com/#portfolio</loc>
+    <loc>https://www.realgrowthagency.com/blog/seo-for-startups-complete-guide</loc>
+    <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.realgrowthagency.com/#process</loc>
+    <loc>https://www.realgrowthagency.com/blog/ai-marketing-automation-small-business-guide</loc>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.realgrowthagency.com/#pricing</loc>
+    <loc>https://www.realgrowthagency.com/blog/how-to-choose-digital-agency-for-your-startup</loc>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.realgrowthagency.com/#contact</loc>
+    <loc>https://www.realgrowthagency.com/blog/content-marketing-strategy-drive-traffic-conversions</loc>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Blog | Real Growth Agency',
     description:
       'Practical guides on SEO, branding, web development, and digital marketing for startups and growing businesses.',
-    url: 'https://realgrowthagency.com/blog',
+    url: 'https://www.realgrowthagency.com/blog',
   },
 };
 
@@ -128,16 +128,16 @@ export default function BlogPage() {
                 Real Growth Bot
               </a>
               <Link href="/blog">Blog</Link>
-              <a href="#">Case Studies</a>
-              <a href="#">Free SEO Audit</a>
+              <a href="/blog">Case Studies</a>
+              <a href="/#contact">Free SEO Audit</a>
             </div>
           </div>
           <div className="footer-bottom">
             <span>© 2026 Real Growth Agency. All rights reserved.</span>
             <div className="footer-social">
-              <a href="#">𝕏</a>
-              <a href="#">in</a>
-              <a href="#">ig</a>
+              <a href="https://x.com/RealGrowthHQ" target="_blank" rel="noopener noreferrer">𝕏</a>
+              <a href="https://www.linkedin.com/company/real-growth-agency" target="_blank" rel="noopener noreferrer">in</a>
+              <a href="https://www.instagram.com/realgrowthagency" target="_blank" rel="noopener noreferrer">ig</a>
             </div>
           </div>
         </div>

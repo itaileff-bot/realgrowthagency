@@ -22,11 +22,11 @@ export const metadata: Metadata = {
   },
   description:
     'We build brands, websites, apps, and marketing engines that drive real growth. Powered by AI. Priced for startups.',
-  metadataBase: new URL('https://realgrowthagency.com'),
+  metadataBase: new URL('https://www.realgrowthagency.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://realgrowthagency.com',
+    url: 'https://www.realgrowthagency.com',
     siteName: 'Real Growth Agency',
     title: 'Real Growth Agency — Brand · Web · Marketing · SEO',
     description:

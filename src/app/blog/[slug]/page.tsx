@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://realgrowthagency.com/blog/${slug}`,
+      url: `https://www.realgrowthagency.com/blog/${slug}`,
       type: 'article',
       publishedTime: post.date,
       authors: [post.author],
@@ -80,16 +80,16 @@ export default async function BlogPostPage({ params }: PageProps) {
     author: {
       '@type': 'Organization',
       name: post.author,
-      url: 'https://realgrowthagency.com',
+      url: 'https://www.realgrowthagency.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Real Growth Agency',
-      url: 'https://realgrowthagency.com',
+      url: 'https://www.realgrowthagency.com',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://realgrowthagency.com/blog/${slug}`,
+      '@id': `https://www.realgrowthagency.com/blog/${slug}`,
     },
   };
 
@@ -225,16 +225,16 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Real Growth Bot
               </a>
               <Link href="/blog">Blog</Link>
-              <a href="#">Case Studies</a>
-              <a href="#">Free SEO Audit</a>
+              <a href="/blog">Case Studies</a>
+              <a href="/#contact">Free SEO Audit</a>
             </div>
           </div>
           <div className="footer-bottom">
             <span>© 2026 Real Growth Agency. All rights reserved.</span>
             <div className="footer-social">
-              <a href="#">𝕏</a>
-              <a href="#">in</a>
-              <a href="#">ig</a>
+              <a href="https://x.com/RealGrowthHQ" target="_blank" rel="noopener noreferrer">𝕏</a>
+              <a href="https://www.linkedin.com/company/real-growth-agency" target="_blank" rel="noopener noreferrer">in</a>
+              <a href="https://www.instagram.com/realgrowthagency" target="_blank" rel="noopener noreferrer">ig</a>
             </div>
           </div>
         </div>

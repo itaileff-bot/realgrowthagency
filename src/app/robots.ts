@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
       },
     ],
-    sitemap: 'https://realgrowthagency.com/sitemap.xml',
+    sitemap: 'https://www.realgrowthagency.com/sitemap.xml',
   };
 }

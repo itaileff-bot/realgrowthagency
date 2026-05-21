@@ -755,16 +755,16 @@ export default function HomePage() {
                 Real Growth Bot
               </a>
               <a href="/blog">Blog</a>
-              <a href="#">Case Studies</a>
-              <a href="#">Free SEO Audit</a>
+              <a href="/blog">Case Studies</a>
+              <a href="/#contact">Free SEO Audit</a>
             </div>
           </div>
           <div className="footer-bottom">
             <span>© 2026 Real Growth Agency. All rights reserved.</span>
             <div className="footer-social">
-              <a href="#">𝕏</a>
-              <a href="#">in</a>
-              <a href="#">ig</a>
+              <a href="https://x.com/RealGrowthHQ" target="_blank" rel="noopener noreferrer">𝕏</a>
+              <a href="https://www.linkedin.com/company/real-growth-agency" target="_blank" rel="noopener noreferrer">in</a>
+              <a href="https://www.instagram.com/realgrowthagency" target="_blank" rel="noopener noreferrer">ig</a>
             </div>
           </div>
         </div>
