@@ -45,7 +45,7 @@ export default function BlogPage() {
           <div className="section-label">📝 Our Blog</div>
           <h1 className="section-title">Insights &amp; Guides</h1>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Actionable tips on SEO, branding, and digital growth — straight from
+            Actionable tips on SEO, branding, and digital growth, straight from
             the team that builds it every day.
           </p>
         </div>

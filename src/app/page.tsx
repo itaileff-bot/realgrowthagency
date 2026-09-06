@@ -84,13 +84,14 @@ export default function HomePage() {
               <span className="gradient-text">Actually Grow</span>
             </h1>
             <p>
-              Full-service digital agency combining AI-powered marketing with
-              world-class design. Brand identity, websites, apps, SEO — all
-              under one roof, at startup-friendly prices.
+              Websites, brands and AI systems built to be found, trusted and
+              booked. Brand identity, websites, apps, SEO and AI marketing, all
+              under one roof at startup-friendly prices, from the team behind
+              Brand Refinery.
             </p>
             <div className="hero-buttons">
-              <a href="#contact" className="btn-primary">
-                Start Your Project →
+              <a href="https://calendly.com/itai-cpg-advisory/30min?utm_source=realgrowthagency&utm_medium=website&utm_campaign=book-now" className="btn-primary" target="_blank" rel="noopener noreferrer">
+                Book a Free 30 Minute Call
               </a>
               <a href="#portfolio" className="btn-secondary">
                 See Our Work
@@ -109,8 +110,9 @@ export default function HomePage() {
               Everything You Need to Grow Online
             </h2>
             <p className="section-subtitle">
-              From first logo to first million in revenue — we handle the full
-              stack of digital growth.
+              From first logo to first million in revenue, we handle the full
+              stack of digital growth. Each service stands alone; together they
+              compound.
             </p>
           </div>
           <div className="services-grid">
@@ -118,8 +120,9 @@ export default function HomePage() {
               <div className="service-icon brand">🎨</div>
               <h3>Brand Identity</h3>
               <p>
-                Complete visual identity systems — logo, color palette,
-                typography, brand guidelines. We make you unforgettable.
+                Complete visual identity systems: logo, color palette,
+                typography and brand guidelines, from a team that has launched
+                23+ consumer brands into major U.S. retailers.
               </p>
               <div className="service-tags">
                 <span className="service-tag">Logo Design</span>
@@ -131,8 +134,8 @@ export default function HomePage() {
               <div className="service-icon web">🌐</div>
               <h3>Web Development</h3>
               <p>
-                Lightning-fast, responsive websites built on modern frameworks.
-                From landing pages to full-stack platforms.
+                Fast, mobile-first websites on Next.js and Vercel with technical
+                SEO, structured data and online booking wired in from day one.
               </p>
               <div className="service-tags">
                 <span className="service-tag">Next.js</span>
@@ -144,8 +147,8 @@ export default function HomePage() {
               <div className="service-icon marketing">📣</div>
               <h3>Digital Marketing</h3>
               <p>
-                Multi-channel campaigns that convert. Social media, email, paid
-                ads — all driven by data and AI automation.
+                Multi-channel campaigns that convert. Social media, email and
+                paid ads, all driven by data and AI automation.
               </p>
               <div className="service-tags">
                 <span className="service-tag">Social Media</span>
@@ -157,8 +160,9 @@ export default function HomePage() {
               <div className="service-icon seo">🔍</div>
               <h3>SEO &amp; Content</h3>
               <p>
-                Dominate search results with technical SEO, keyword strategy, and
-                content that ranks and converts.
+                Rank on Google and get cited by ChatGPT, Perplexity and AI
+                Overviews: technical SEO, entity and schema work, and content
+                that ranks and converts.
               </p>
               <div className="service-tags">
                 <span className="service-tag">Technical SEO</span>
@@ -183,7 +187,7 @@ export default function HomePage() {
               <div className="service-icon ai">🤖</div>
               <h3>AI Growth Engine</h3>
               <p>
-                Powered by <strong>Real Growth Bot</strong> — automated lead
+                Powered by <strong>Real Growth Bot</strong>: automated lead
                 gen, outreach, and conversion optimization that runs 24/7.
               </p>
               <div className="service-tags">
@@ -236,7 +240,7 @@ export default function HomePage() {
                 <span className="tag">E-Commerce + Brand</span>
                 <h4>Famous Finds</h4>
                 <p>
-                  Luxury authenticated resale platform — full brand identity +
+                  Luxury authenticated resale platform: full brand identity +
                   e-commerce build
                 </p>
               </div>
@@ -262,7 +266,7 @@ export default function HomePage() {
                 <span className="tag">Brand + Web</span>
                 <h4>A Rich Wines</h4>
                 <p>
-                  Premium wine brand — elegant brand system + direct-to-consumer
+                  Premium wine brand: elegant brand system + direct-to-consumer
                   site
                 </p>
               </div>
@@ -285,7 +289,7 @@ export default function HomePage() {
                 <span className="tag">Brand + Marketing</span>
                 <h4>Ape Beverages</h4>
                 <p>
-                  Sustainable canned spring water — brand identity, Shopify, and
+                  Sustainable canned spring water: brand identity, Shopify, and
                   growth marketing
                 </p>
               </div>
@@ -308,7 +312,7 @@ export default function HomePage() {
                 <span className="tag">Full Stack + SEO</span>
                 <h4>Chef Prep For You</h4>
                 <p>
-                  Private chef service — Next.js web app, SEO strategy, and lead
+                  Private chef service: Next.js web app, SEO strategy, and lead
                   generation
                 </p>
               </div>
@@ -334,16 +338,18 @@ export default function HomePage() {
               <div className="step-number">01</div>
               <h4>Discovery Call</h4>
               <p>
-                We learn your goals, audience, and competition. 30 minutes. No
-                fluff.
+                Book a 30 minute call online. Before we speak we audit your
+                site, search visibility and brand, so we arrive with findings,
+                not questions.
               </p>
             </div>
             <div className="step">
               <div className="step-number">02</div>
               <h4>Strategy &amp; Design</h4>
               <p>
-                We map out the plan and design everything — brand, site,
-                marketing funnels.
+                You get a scoped, fixed-price proposal within two business
+                days, then we design everything: brand, site, marketing
+                funnels.
               </p>
             </div>
             <div className="step">
@@ -358,8 +364,9 @@ export default function HomePage() {
               <div className="step-number">04</div>
               <h4>Grow &amp; Optimize</h4>
               <p>
-                Real Growth Bot takes over — AI-powered campaigns, SEO, and
-                continuous optimization.
+                Real Growth Bot takes over: AI-powered campaigns, SEO, and
+                continuous optimization, with monitoring agents that fix
+                problems before customers notice.
               </p>
             </div>
           </div>
@@ -417,7 +424,7 @@ export default function HomePage() {
                   <div>
                     <h5>Real-Time Analytics</h5>
                     <p>
-                      Dashboard with live metrics — know exactly what&apos;s
+                      Dashboard with live metrics, so you know exactly what&apos;s
                       working
                     </p>
                   </div>
@@ -544,7 +551,7 @@ export default function HomePage() {
             <div className="section-label">❤️ Client Love</div>
             <h2 className="section-title">What Our Clients Say</h2>
             <p className="section-subtitle">
-              Don&apos;t take our word for it — hear from the businesses
+              Don&apos;t take our word for it. Hear from the businesses
               we&apos;ve helped grow.
             </p>
           </div>
@@ -605,12 +612,12 @@ export default function HomePage() {
             Ready to <span className="gradient-text">Actually Grow?</span>
           </h2>
           <p>
-            Book a free 30-minute strategy call. No pitch decks, no pressure —
+            Book a free 30 minute strategy call. No pitch decks, no pressure,
             just a clear roadmap to your next level.
           </p>
           <div className="cta-buttons">
-            <a href="#contact" className="btn-white">
-              Book Your Free Call →
+            <a href="https://calendly.com/itai-cpg-advisory/30min?utm_source=realgrowthagency&utm_medium=website&utm_campaign=book-now" className="btn-white" target="_blank" rel="noopener noreferrer">
+              Book Your Free Call
             </a>
             <a href="#pricing" className="btn-outline">
               View Pricing
@@ -628,7 +635,12 @@ export default function HomePage() {
               <h3>Let&apos;s Build Something Great Together</h3>
               <p>
                 Fill out the form and we&apos;ll get back within 24 hours with a
-                custom proposal — no templates, no cookie-cutter quotes.
+                custom proposal: no templates, no cookie-cutter quotes. Or skip
+                the form and{' '}
+                <a href="https://calendly.com/itai-cpg-advisory/30min?utm_source=realgrowthagency&utm_medium=website&utm_campaign=book-now" target="_blank" rel="noopener noreferrer">
+                  book a call now
+                </a>
+                .
               </p>
               <div className="contact-detail">
                 <div className="contact-icon email">✉️</div>

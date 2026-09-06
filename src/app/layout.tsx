@@ -17,26 +17,26 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Real Growth Agency — Brand · Web · Marketing · SEO',
+    default: 'Real Growth Agency | Web Design, Brand, SEO and AI',
     template: '%s | Real Growth Agency',
   },
   description:
-    'We build brands, websites, apps, and marketing engines that drive real growth. Powered by AI. Priced for startups.',
+    'Websites, brands, apps and AI marketing engines built to be found, trusted and booked. Powered by AI, priced for startups, from the team behind Brand Refinery.',
   metadataBase: new URL('https://www.realgrowthagency.com'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.realgrowthagency.com',
     siteName: 'Real Growth Agency',
-    title: 'Real Growth Agency — Brand · Web · Marketing · SEO',
+    title: 'Real Growth Agency | Web Design, Brand, SEO and AI',
     description:
-      'We build brands, websites, apps, and marketing engines that drive real growth. Powered by AI. Priced for startups.',
+      'Websites, brands, apps and AI marketing engines built to be found, trusted and booked. Powered by AI, priced for startups, from the team behind Brand Refinery.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Real Growth Agency — Brand · Web · Marketing · SEO',
+    title: 'Real Growth Agency | Web Design, Brand, SEO and AI',
     description:
-      'We build brands, websites, apps, and marketing engines that drive real growth. Powered by AI. Priced for startups.',
+      'Websites, brands, apps and AI marketing engines built to be found, trusted and booked. Powered by AI, priced for startups, from the team behind Brand Refinery.',
   },
 };
 

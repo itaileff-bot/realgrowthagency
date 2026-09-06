@@ -178,7 +178,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h3>Ready to Grow Your Startup?</h3>
             <p>
               Get a free strategy call with our team. We&apos;ll audit your
-              current SEO and map out a growth plan — no strings attached.
+              current SEO and map out a growth plan, no strings attached.
             </p>
             <Link href="/#contact" className="btn-primary">
               Book Your Free Call →
