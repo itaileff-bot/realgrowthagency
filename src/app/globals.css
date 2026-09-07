@@ -1088,7 +1088,7 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 48px;
   margin-bottom: 48px;
 }
@@ -1540,4 +1540,50 @@ footer {
   .blog-grid { grid-template-columns: 1fr; }
   .blog-post-content { padding: 40px 20px 80px; }
   .blog-cta { margin-left: 20px; margin-right: 20px; padding: 36px 24px; }
+}
+
+/* Links back to the parent company, CPG Advisory / Brand Refinery. */
+.hero-parent {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+.hero-parent a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.hero-parent a:hover { opacity: 0.8; }
+
+.cta-parent {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.cta-parent a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0 32px;
+}
+.footer-back .btn-outline {
+  font-size: 0.85rem;
+  padding: 12px 20px;
+}
+.footer-parent-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+@media (max-width: 640px) {
+  .footer-back { flex-direction: column; }
+  .footer-back .btn-outline { text-align: center; }
 }

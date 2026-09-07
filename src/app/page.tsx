@@ -97,6 +97,12 @@ export default function HomePage() {
                 See Our Work
               </a>
             </div>
+            <p className="hero-parent">
+              A Brand Refinery company.{' '}
+              <a href="https://www.cpg-advisory.com/real-growth">
+                Back to CPG Advisory
+              </a>
+            </p>
           </div>
         </div>
       </section>
@@ -623,6 +629,10 @@ export default function HomePage() {
               View Pricing
             </a>
           </div>
+          <p className="cta-parent">
+            Looking for CPG and retail consulting instead?{' '}
+            <a href="https://www.cpg-advisory.com/">Visit CPG Advisory</a>
+          </p>
         </div>
       </section>
 
@@ -770,9 +780,33 @@ export default function HomePage() {
               <a href="/blog">Case Studies</a>
               <a href="/#contact">Free SEO Audit</a>
             </div>
+            <div className="footer-col">
+              <h5>Brand Refinery</h5>
+              <a href="https://www.cpg-advisory.com/real-growth">
+                Real Growth on CPG Advisory
+              </a>
+              <a href="https://www.cpg-advisory.com/">CPG Advisory website</a>
+              <a href="https://www.cpg-advisory.com/services">
+                CPG consulting services
+              </a>
+            </div>
+          </div>
+          <div className="footer-back">
+            <a href="https://www.cpg-advisory.com/real-growth" className="btn-outline">
+              Back to CPG Advisory page
+            </a>
+            <a href="https://www.cpg-advisory.com/" className="btn-outline">
+              CPG Advisory website
+            </a>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 Real Growth Agency. All rights reserved.</span>
+            <span>
+              © 2026 Real Growth Agency, a{' '}
+              <a href="https://www.cpg-advisory.com/" className="footer-parent-link">
+                Brand Refinery
+              </a>{' '}
+              company. All rights reserved.
+            </span>
             <div className="footer-social">
               <a href="https://x.com/RealGrowthHQ" target="_blank" rel="noopener noreferrer">𝕏</a>
               <a href="https://www.linkedin.com/company/real-growth-agency" target="_blank" rel="noopener noreferrer">in</a>
