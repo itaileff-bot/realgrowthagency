@@ -1,0 +1,1168 @@
+/*
+ * Checkpoint proposal stylesheet.
+ *
+ * Imported by src/app/proposals/layout.tsx, not by globals.css, because it is
+ * one section's identity rather than site furniture. Keeping it in its own
+ * file means the 1,589-line globals.css does not grow for a client pitch, and
+ * a future proposal can take a sibling file without either touching the other.
+ *
+ * EVERY rule is nested under `.cp-root`. globals.css styles bare elements
+ * (`nav`, `a`, `body`) and owns generic class names like `.container` and
+ * `.section-label`; an unscoped rule here would leak into the marketing site,
+ * and an unscoped rule there would leak into the proposal. The scope is the
+ * contract between the two.
+ *
+ * PALETTE
+ * Lifted from the source deck by colour frequency in the slide XML, not
+ * eyeballed from a screenshot:
+ *   ink       #15171E   ground
+ *   ink-raise #1B1E27   raised panels
+ *   ink-line  #2A2D38   hairlines
+ *   lime      #C8FF2E   primary accent
+ *   coral     #FF6B5A   secondary accent
+ *   cream     #FDFCF9   body type
+ *   slate     #9AA0B0   secondary type
+ *
+ * Verified contrast on the ink ground:
+ *   cream  17.45  AAA      lime   15.17  AAA
+ *   slate   6.84  AA       coral   6.40  AA
+ * And for type sitting ON the accents, which is how the buttons read:
+ *   ink on lime 15.17 AAA, ink on coral 6.40 AA.
+ */
+
+.cp-root {
+  --cp-ink: #15171e;
+  --cp-ink-raise: #1b1e27;
+  --cp-ink-deep: #181b22;
+  --cp-line: #2a2d38;
+  --cp-lime: #c8ff2e;
+  --cp-coral: #ff6b5a;
+  --cp-cream: #fdfcf9;
+  --cp-stone: #cfc9b8;
+  --cp-slate: #9aa0b0;
+
+  /*
+   * One gutter, one measure, one rhythm, declared once.
+   *
+   * This is the whole alignment fix in four lines. The source deck drifted
+   * because each slide set its own margins; here every band reads the same
+   * three values, so no two sections can disagree.
+   */
+  --cp-gutter: 20px;
+  --cp-measure: 1152px;
+  --cp-rhythm: 64px;
+  --cp-header: 64px;
+
+  background: var(--cp-ink);
+  color: var(--cp-cream);
+  font-family: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+
+@media (min-width: 640px) {
+  .cp-root {
+    --cp-gutter: 32px;
+  }
+}
+
+@media (min-width: 768px) {
+  .cp-root {
+    --cp-rhythm: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cp-root {
+    --cp-rhythm: 112px;
+  }
+}
+
+.cp-root *,
+.cp-root *::before,
+.cp-root *::after {
+  box-sizing: border-box;
+}
+
+/*
+ * ── UNDOING globals.css ───────────────────────────────────────────────
+ *
+ * globals.css styles two bare elements that this section also uses, and an
+ * element selector there wins over nothing here. Both have to be neutralised
+ * explicitly; scoping this file is not enough on its own, because scoping
+ * stops these rules leaking OUT, not the site's leaking IN.
+ *
+ *   nav     globals.css pins it `position: fixed` across the top of the
+ *           viewport on a 92%-white ground, for the marketing site's own
+ *           header. Left alone, the section nav inside our header tore free
+ *           and painted a white bar over the top of the proposal.
+ *   footer  globals.css sets the agency's dark-purple ground, muted white
+ *           type and its own vertical padding, which fights the ink palette
+ *           and doubles the footer's height.
+ *
+ * If globals.css ever grows another bare-element rule, it belongs in this
+ * block too.
+ */
+.cp-root nav {
+  position: static;
+  z-index: auto;
+  background: none;
+  backdrop-filter: none;
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+.cp-root footer {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.cp-root ul,
+.cp-root ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cp-root a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cp-root img {
+  display: block;
+  max-width: 100%;
+}
+
+.cp-root ::selection {
+  background: var(--cp-lime);
+  color: var(--cp-ink);
+}
+
+/* ── TYPE ─────────────────────────────────────────────────────────────── */
+
+/*
+ * Bricolage Grotesque carries every display line. Headings are tracked tight
+ * because its wide apertures read loose at large sizes.
+ */
+.cp-display {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+/*
+ * Big figures are tabular. This is the single most visible correction over
+ * the source deck: proportional numerals give "123M" and "27M" different
+ * optical left edges, and a row of them never lines up.
+ */
+.cp-figure {
+  font-family: var(--font-bricolage), 'Bricolage Grotesque', system-ui, sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  margin: 0;
+}
+
+.cp-figure--sm { font-size: 32px; }
+.cp-figure--md { font-size: 40px; }
+.cp-figure--lg { font-size: 52px; }
+
+@media (min-width: 640px) {
+  .cp-figure--sm { font-size: 38px; }
+  .cp-figure--md { font-size: 48px; }
+  .cp-figure--lg { font-size: 60px; }
+}
+
+@media (min-width: 1024px) {
+  .cp-figure--lg { font-size: 72px; }
+}
+
+.cp-figure__unit {
+  font-family: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: normal;
+  color: var(--cp-slate);
+  margin-left: 6px;
+}
+
+.cp-lime { color: var(--cp-lime); }
+.cp-coral { color: var(--cp-coral); }
+.cp-cream { color: var(--cp-cream); }
+.cp-stone { color: var(--cp-stone); }
+.cp-muted { color: var(--cp-slate); }
+
+.cp-eyebrow {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--cp-slate);
+  margin: 0;
+}
+
+.cp-eyebrow--accent { color: var(--cp-lime); }
+.cp-eyebrow--xs { font-size: 10px; }
+
+.cp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── LAYOUT ───────────────────────────────────────────────────────────── */
+
+.cp-container {
+  width: 100%;
+  max-width: var(--cp-measure);
+  margin: 0 auto;
+  padding-inline: var(--cp-gutter);
+}
+
+.cp-section {
+  border-top: 1px solid var(--cp-line);
+  padding-block: var(--cp-rhythm);
+  /* Clears the fixed header when an in-page anchor is followed. */
+  scroll-margin-top: var(--cp-header);
+  background: var(--cp-ink);
+}
+
+.cp-section--raised { background: var(--cp-ink-raise); }
+.cp-section--tight { padding-block: 48px; }
+
+.cp-section__head { margin-bottom: 40px; }
+
+@media (min-width: 768px) {
+  .cp-section__head { margin-bottom: 56px; }
+}
+
+.cp-section__head--tight { margin-bottom: 32px; }
+
+/*
+ * The number-and-rule eyebrow replaces the deck's corner slide numbers, which
+ * is what lets a reader keep their place in a single long scroll. Drawn once,
+ * so every section header shares one baseline.
+ */
+.cp-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cp-kicker__rule {
+  height: 1px;
+  width: 24px;
+  background: rgba(200, 255, 46, 0.45);
+  flex: none;
+}
+
+.cp-h2 {
+  font-size: 28px;
+  line-height: 1.12;
+  margin: 20px 0 0;
+  max-width: 44ch;
+  color: var(--cp-cream);
+}
+
+.cp-h3 {
+  font-size: 18px;
+  line-height: 1.25;
+  margin: 0;
+  color: var(--cp-cream);
+}
+
+.cp-lead {
+  margin: 20px 0 0;
+  max-width: 62ch;
+  color: var(--cp-slate);
+}
+
+@media (min-width: 640px) {
+  .cp-h2 { font-size: 36px; }
+  .cp-h3 { font-size: 20px; }
+}
+
+@media (min-width: 1024px) {
+  .cp-h2 { font-size: 44px; }
+}
+
+/* ── GRID ─────────────────────────────────────────────────────────────── */
+
+/*
+ * A single grid primitive with a column-count modifier. Cards stretch to
+ * their row by default (`align-items: stretch` is the initial value), and
+ * every card below is a flex column, so a row ends level whatever the copy
+ * length. That pairing is what the deck could not do.
+ */
+.cp-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+.cp-grid--gap-lg { gap: 24px; }
+
+@media (min-width: 640px) {
+  .cp-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cp-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .cp-grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cp-grid--2md { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .cp-grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cp-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+/*
+ * Five platform stats on a six-column grid: the first two span three columns
+ * and the last three span two, so both rows fill the measure exactly. An
+ * auto-fit grid leaves the fifth card orphaned at a different width.
+ */
+@media (min-width: 640px) {
+  .cp-grid--5up { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .cp-grid--5up > :nth-child(-n + 2) { grid-column: span 3; }
+  .cp-grid--5up > :nth-child(n + 3) { grid-column: span 2; }
+}
+
+.cp-split { display: grid; gap: 40px; }
+
+@media (min-width: 1024px) {
+  .cp-split {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 56px;
+  }
+  .cp-split__narrow { grid-column: span 5; }
+  .cp-split__wide { grid-column: span 7; }
+  .cp-split__half { grid-column: span 6; }
+  .cp-split__third { grid-column: span 4; }
+  .cp-split__twothirds { grid-column: span 8; }
+}
+
+/* ── SURFACES ─────────────────────────────────────────────────────────── */
+
+/*
+ * `height: 100%` plus a flex column is the pairing that keeps rows level.
+ * Anything pinned to the foot of a card uses `margin-top: auto`, so the
+ * bottom line of every card in a row lands together.
+ */
+.cp-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--cp-line);
+  border-radius: 12px;
+  background: var(--cp-ink-raise);
+  padding: 20px;
+}
+
+@media (min-width: 640px) {
+  .cp-card { padding: 24px; }
+}
+
+.cp-card--flat { background: var(--cp-ink); }
+.cp-card--deep { background: var(--cp-ink-deep); }
+.cp-card--lg { border-radius: 16px; padding: 24px; }
+
+@media (min-width: 640px) {
+  .cp-card--lg { padding: 32px; }
+}
+
+.cp-card--lime {
+  border-color: rgba(200, 255, 46, 0.35);
+  background: rgba(200, 255, 46, 0.06);
+}
+
+.cp-card--lime-strong {
+  border-color: var(--cp-lime);
+  background: rgba(200, 255, 46, 0.08);
+}
+
+.cp-card--coral {
+  border-color: rgba(255, 107, 90, 0.35);
+  background: rgba(255, 107, 90, 0.08);
+}
+
+.cp-card__foot { margin-top: auto; padding-top: 16px; }
+.cp-card__foot--lg { padding-top: 32px; }
+
+.cp-card__label {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.35;
+  color: var(--cp-cream);
+}
+
+.cp-card__note {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--cp-slate);
+}
+
+.cp-body {
+  margin: 0;
+  color: var(--cp-slate);
+}
+
+.cp-body + .cp-body { margin-top: 20px; }
+
+.cp-body--bright { color: var(--cp-cream); }
+.cp-body--sm { font-size: 15px; }
+
+.cp-tag {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 255, 46, 0.35);
+  background: rgba(200, 255, 46, 0.1);
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cp-lime);
+  white-space: nowrap;
+}
+
+/*
+ * Hairline grid used behind the hero and the traffic hub. Kept in CSS rather
+ * than shipped as an image: it scales to any viewport, costs no bytes and
+ * cannot go out of register with the layout.
+ */
+.cp-gridlines {
+  background-image:
+    linear-gradient(to right, rgba(200, 255, 46, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 255, 46, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ── BUTTONS ──────────────────────────────────────────────────────────── */
+
+.cp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: opacity 0.2s, border-color 0.2s, color 0.2s;
+  text-align: center;
+}
+
+.cp-btn--primary { background: var(--cp-lime); color: var(--cp-ink); }
+.cp-btn--primary:hover { opacity: 0.9; }
+
+.cp-btn--ghost { border-color: var(--cp-line); color: var(--cp-cream); }
+.cp-btn--ghost:hover { border-color: var(--cp-lime); color: var(--cp-lime); }
+
+.cp-btn--sm { padding: 9px 16px; font-size: 13px; }
+
+.cp-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 36px; }
+
+@media (min-width: 640px) {
+  .cp-actions { flex-direction: row; }
+}
+
+.cp-link {
+  color: var(--cp-slate);
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+.cp-link:hover { color: var(--cp-lime); text-decoration: underline; }
+.cp-link--bright { color: var(--cp-cream); }
+
+/* ── HEADER ───────────────────────────────────────────────────────────── */
+
+.cp-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.cp-header--solid {
+  background: rgba(21, 23, 30, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--cp-line);
+}
+
+.cp-header__bar {
+  display: flex;
+  height: var(--cp-header);
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cp-wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  font-size: 17px;
+  color: var(--cp-cream);
+}
+
+/*
+ * The mark ships as near-black artwork, which is invisible on the ink ground.
+ * Inverting it here beats shipping a second file: one asset to replace if
+ * Checkpoint reissues the logo.
+ */
+.cp-wordmark__mark { width: 24px; height: 24px; filter: invert(1); }
+
+.cp-nav { display: none; align-items: center; gap: 4px; }
+
+@media (min-width: 1024px) {
+  .cp-nav { display: flex; }
+}
+
+.cp-nav__link {
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cp-slate);
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.cp-nav__link:hover { color: var(--cp-cream); }
+
+.cp-nav__link[aria-current='true'] {
+  background: rgba(200, 255, 46, 0.12);
+  color: var(--cp-lime);
+}
+
+.cp-header__actions { display: flex; align-items: center; gap: 8px; }
+.cp-header__cta { display: none; }
+
+@media (min-width: 640px) {
+  .cp-header__cta { display: inline-flex; }
+}
+
+.cp-burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 20px;
+  padding: 10px 0;
+  margin-right: -6px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  box-sizing: content-box;
+}
+
+@media (min-width: 1024px) {
+  .cp-burger { display: none; }
+}
+
+.cp-burger span {
+  display: block;
+  height: 1.5px;
+  background: var(--cp-cream);
+  transition: transform 0.3s, opacity 0.2s;
+}
+
+.cp-burger--open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.cp-burger--open span:nth-child(2) { opacity: 0; }
+.cp-burger--open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.cp-drawer { border-top: 1px solid var(--cp-line); padding: 16px 0; }
+
+@media (min-width: 1024px) {
+  .cp-drawer { display: none; }
+}
+
+.cp-drawer__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cp-cream);
+}
+
+.cp-drawer__link[aria-current='true'] { color: var(--cp-lime); }
+.cp-drawer__cta { display: block; width: 100%; margin-top: 12px; }
+
+.cp-skip {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.cp-skip:focus {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 60;
+  width: auto;
+  height: auto;
+  clip: auto;
+  border-radius: 999px;
+  background: var(--cp-lime);
+  color: var(--cp-ink);
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* ── HERO ─────────────────────────────────────────────────────────────── */
+
+.cp-hero { position: relative; isolation: isolate; overflow: hidden; }
+
+.cp-hero__bg { position: absolute; inset: 0; z-index: -1; }
+
+/*
+ * Scaled past its own edges on purpose. The source is a gameplay capture, so
+ * the Roblox HUD rings the frame: currency counters top-right, the action rail
+ * down both sides. At 1:1 those sit behind the header and read as someone
+ * else's interface bolted onto the page. 1.45 pushes the ring outside the band
+ * and leaves only the atrium, which is the part that sells.
+ */
+.cp-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.7;
+  transform: scale(1.45);
+}
+
+/*
+ * Three scrims, each doing one job, because a single flat overlay dark enough
+ * for AA type kills the photograph outright. The copy column stops well short
+ * of the open centre, so measured contrast is against the left of the
+ * horizontal gradient, which sits at full ink.
+ */
+.cp-hero__scrim { position: absolute; inset: 0; }
+
+.cp-hero__scrim--h {
+  background: linear-gradient(
+    to right,
+    #15171e 0%,
+    rgba(21, 23, 30, 0.8) 50%,
+    rgba(21, 23, 30, 0.4) 100%
+  );
+}
+
+.cp-hero__scrim--v {
+  background: linear-gradient(
+    to bottom,
+    rgba(21, 23, 30, 0.7) 0%,
+    transparent 50%,
+    #15171e 100%
+  );
+}
+
+.cp-hero__scrim--r {
+  background: radial-gradient(
+    ellipse at 62% 42%,
+    rgba(21, 23, 30, 0) 0%,
+    rgba(21, 23, 30, 0.35) 45%,
+    rgba(21, 23, 30, 0.85) 100%
+  );
+}
+
+.cp-hero__scrim--grid { opacity: 0.5; }
+
+.cp-hero__inner { padding-top: 112px; padding-bottom: 64px; }
+
+@media (min-width: 768px) {
+  .cp-hero__inner { padding-top: 144px; padding-bottom: 96px; }
+}
+
+@media (min-width: 1024px) {
+  .cp-hero__inner { padding-top: 176px; padding-bottom: 112px; }
+}
+
+.cp-hero__copy { max-width: 768px; }
+
+.cp-hero__kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+
+.cp-hero__title {
+  font-size: 34px;
+  line-height: 1.06;
+  margin: 24px 0 0;
+  color: var(--cp-cream);
+}
+
+@media (min-width: 640px) {
+  .cp-hero__title { font-size: 48px; }
+}
+
+@media (min-width: 1024px) {
+  .cp-hero__title { font-size: 64px; }
+}
+
+.cp-hero__lead {
+  margin: 24px 0 0;
+  max-width: 36em;
+  color: var(--cp-slate);
+}
+
+@media (min-width: 640px) {
+  .cp-hero__lead { font-size: 19px; }
+}
+
+/*
+ * Three-up even at 375px. Stacked, the proof points push the fold past the
+ * headline; three columns keeps them on one baseline under it.
+ */
+.cp-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 56px 0 0;
+  border-top: 1px solid var(--cp-line);
+  padding-top: 32px;
+}
+
+@media (min-width: 640px) {
+  .cp-hero__stats { gap: 32px; }
+}
+
+@media (min-width: 768px) {
+  .cp-hero__stats { margin-top: 80px; }
+}
+
+.cp-hero__stats dd { margin: 0; }
+
+/*
+ * `white-space: nowrap` is load-bearing. Without it "8–16" wrapped inside the
+ * figure at 375px and knocked the third stat off the row's baseline.
+ */
+.cp-hero__statvalue {
+  font-size: 26px;
+  color: var(--cp-lime);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .cp-hero__statvalue { font-size: 36px; }
+}
+
+.cp-hero__statlabel {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--cp-slate);
+}
+
+@media (min-width: 640px) {
+  .cp-hero__statlabel { font-size: 15px; }
+}
+
+.cp-hero__meta { margin: 40px 0 0; }
+
+/* ── CHARTS ───────────────────────────────────────────────────────────── */
+
+.cp-donut { display: flex; flex-direction: column; align-items: center; gap: 32px; }
+
+@media (min-width: 640px) {
+  .cp-donut { flex-direction: row; gap: 40px; }
+}
+
+.cp-donut__svg { width: 180px; height: 180px; flex: none; }
+.cp-donut__legend { width: 100%; }
+
+.cp-donut__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--cp-line);
+  padding-bottom: 12px;
+}
+
+.cp-donut__row + .cp-donut__row { margin-top: 12px; }
+.cp-donut__row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.cp-donut__name { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+
+.cp-swatch { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+
+.cp-donut__value { font-size: 18px; flex: none; color: var(--cp-cream); }
+
+.cp-bars__row + .cp-bars__row { margin-top: 20px; }
+
+/*
+ * Label above the bar, not beside it: at 375px a side label squeezes the bar
+ * to nothing.
+ */
+.cp-bars__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cp-bars__label { font-size: 15px; color: var(--cp-cream); }
+.cp-bars__value { font-size: 16px; color: var(--cp-cream); }
+
+.cp-bars__unit {
+  font-family: var(--font-dm-sans), 'DM Sans', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: normal;
+  color: var(--cp-slate);
+  margin-left: 4px;
+}
+
+.cp-bars__track {
+  margin-top: 8px;
+  height: 6px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--cp-line);
+}
+
+.cp-bars__fill { height: 100%; border-radius: 999px; background: var(--cp-lime); }
+.cp-bars__fill--coral { background: var(--cp-coral); }
+
+.cp-attention__row + .cp-attention__row { margin-top: 24px; }
+.cp-attention__track { margin-top: 10px; height: 8px; }
+
+/* ── GALLERY ──────────────────────────────────────────────────────────── */
+
+/*
+ * A snap rail below 640px, a 2x2 grid above it. A four-up grid at 375px gives
+ * each screenshot 160px and the world stops being legible; the rail keeps
+ * them near full width instead.
+ */
+.cp-rail {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-inline: var(--cp-gutter);
+  margin-inline: calc(var(--cp-gutter) * -1);
+  padding-bottom: 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cp-rail::-webkit-scrollbar { display: none; }
+
+.cp-rail > li { width: 84vw; flex: none; scroll-snap-align: center; }
+
+@media (min-width: 640px) {
+  .cp-rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+    padding-inline: 0;
+    margin-inline: 0;
+  }
+  .cp-rail > li { width: auto; }
+}
+
+.cp-shot {
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid var(--cp-line);
+  margin: 0;
+}
+
+.cp-shot__frame { position: relative; aspect-ratio: 16 / 9; }
+
+.cp-shot__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cp-shot__cap {
+  border-top: 1px solid var(--cp-line);
+  background: var(--cp-ink-raise);
+  padding: 10px 16px;
+  color: var(--cp-slate);
+}
+
+/*
+ * The two Lil Pump renders arrive at different aspect ratios, one portrait
+ * and one landscape. A fixed 4:3 frame with `contain` and an equal inset is
+ * what stops the pair reading crooked, which is how they sat on the slide.
+ */
+.cp-asset { overflow: hidden; border-radius: 16px; border: 1px solid var(--cp-line); background: var(--cp-ink); margin: 0; display: flex; flex-direction: column; height: 100%; }
+.cp-asset__frame { aspect-ratio: 4 / 3; background: var(--cp-ink-deep); padding: 20px; }
+.cp-asset__frame img { width: 100%; height: 100%; object-fit: contain; }
+.cp-asset__cap { border-top: 1px solid var(--cp-line); padding: 20px; }
+
+@media (min-width: 640px) {
+  .cp-asset__cap { padding: 24px; }
+}
+
+.cp-format { overflow: hidden; border-radius: 16px; border: 1px solid var(--cp-line); background: var(--cp-ink-raise); display: flex; flex-direction: column; height: 100%; transition: border-color 0.2s; }
+.cp-format:hover { border-color: rgba(200, 255, 46, 0.45); }
+.cp-format__frame { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--cp-line); }
+.cp-format__frame img { width: 100%; height: 100%; object-fit: cover; }
+.cp-format__body { display: flex; flex-direction: column; flex: 1; padding: 20px; }
+
+@media (min-width: 640px) {
+  .cp-format__body { padding: 24px; }
+}
+
+.cp-format__head { display: flex; align-items: baseline; gap: 12px; }
+
+/* ── TEAM ─────────────────────────────────────────────────────────────── */
+
+.cp-avatar {
+  display: flex;
+  height: 48px;
+  width: 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 18px;
+  color: var(--cp-ink);
+}
+
+.cp-avatar--lime { background: var(--cp-lime); }
+.cp-avatar--coral { background: var(--cp-coral); }
+.cp-avatar--cream { background: var(--cp-cream); }
+
+/* ── PROCESS ──────────────────────────────────────────────────────────── */
+
+/*
+ * The connector is one absolutely positioned hairline behind the whole list,
+ * not a border per step, so it cannot break between items the way the deck's
+ * arrow chain did. Vertical spine below 1024px, horizontal rail above it.
+ */
+.cp-steps { position: relative; display: grid; gap: 32px; }
+
+.cp-steps__spine {
+  position: absolute;
+  left: 19px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--cp-line);
+}
+
+.cp-steps__item { position: relative; display: flex; gap: 20px; }
+
+.cp-steps__dot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 255, 46, 0.4);
+  background: var(--cp-ink);
+  font-size: 14px;
+  color: var(--cp-lime);
+}
+
+@media (min-width: 1024px) {
+  .cp-steps { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 24px; }
+  .cp-steps__spine { left: 0; right: 0; top: 19px; bottom: auto; height: 1px; width: auto; }
+  .cp-steps__item { display: block; }
+  .cp-steps__body { margin-top: 20px; }
+}
+
+/* Raised sections put the step dots on the raised ground, not the base. */
+.cp-section--raised .cp-steps__dot { background: var(--cp-ink-raise); }
+
+.cp-channel {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--cp-line);
+  background: var(--cp-ink-raise);
+  padding: 20px;
+}
+
+.cp-channel + .cp-channel { margin-top: 12px; }
+.cp-channel__n { margin-top: 2px; flex: none; font-size: 14px; color: var(--cp-lime); }
+
+.cp-hub {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 255, 46, 0.35);
+  background: rgba(200, 255, 46, 0.06);
+  padding: 32px;
+  text-align: center;
+}
+
+.cp-hub__rule { margin-top: 24px; height: 1px; width: 48px; background: rgba(200, 255, 46, 0.45); }
+
+/* ── LISTS ────────────────────────────────────────────────────────────── */
+
+.cp-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 24px; margin-top: 24px; }
+
+.cp-metrics li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--cp-line);
+  padding-bottom: 16px;
+  font-size: 15px;
+}
+
+.cp-dot { height: 6px; width: 6px; flex: none; border-radius: 999px; background: var(--cp-lime); }
+
+.cp-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+
+.cp-pills li {
+  border-radius: 999px;
+  border: 1px solid var(--cp-line);
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--cp-cream);
+}
+
+.cp-check {
+  display: flex;
+  height: 36px;
+  width: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 255, 46, 0.4);
+  color: var(--cp-lime);
+}
+
+.cp-check svg { width: 16px; height: 16px; }
+
+.cp-numbered { display: flex; align-items: flex-start; gap: 16px; }
+.cp-numbered + .cp-numbered { margin-top: 16px; }
+
+.cp-numbered__n {
+  display: flex;
+  height: 32px;
+  width: 32px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--cp-lime);
+  font-size: 14px;
+  color: var(--cp-ink);
+}
+
+.cp-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 24px 0 0; }
+
+@media (min-width: 1024px) {
+  .cp-results { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.cp-results dd { margin: 0; }
+
+.cp-source { margin: 32px 0 0; font-size: 13px; color: var(--cp-slate); }
+.cp-source__sep { margin-inline: 8px; color: var(--cp-line); }
+
+.cp-sources { display: grid; gap: 32px; margin-top: 24px; }
+
+@media (min-width: 768px) {
+  .cp-sources { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.cp-sources li { display: flex; gap: 12px; font-size: 15px; color: var(--cp-slate); }
+.cp-sources li + li { margin-top: 12px; }
+
+.cp-contact { display: flex; flex-direction: column; height: 100%; border-radius: 16px; border: 1px solid var(--cp-line); background: var(--cp-ink-raise); padding: 24px; }
+
+@media (min-width: 640px) {
+  .cp-contact { padding: 32px; }
+}
+
+/*
+ * `height: auto` is load-bearing, not tidiness.
+ *
+ * The <img> carries width/height attributes so the browser can reserve its
+ * box and avoid layout shift. Setting only a CSS width leaves the attribute
+ * height in force, so this rendered 160px wide by its intrinsic 922px tall:
+ * a smeared graphic dragging the contact card to three times its height.
+ * globals.css sets `img { max-width: 100% }` with no height rule, so nothing
+ * upstream corrects it. Every other image here is sized by its frame with
+ * object-fit; this is the only one sized by width alone.
+ */
+.cp-contact__art { width: 160px; height: auto; margin: 0 auto; }
+
+@media (min-width: 640px) {
+  .cp-contact__art { width: 192px; }
+}
+
+.cp-contact__list { margin-top: 24px; }
+.cp-contact__list li + li { margin-top: 10px; }
+
+/* ── FOOTER ───────────────────────────────────────────────────────────── */
+
+.cp-footer { border-top: 1px solid var(--cp-line); background: var(--cp-ink-deep); }
+.cp-footer__inner { padding-block: 48px; display: grid; gap: 40px; }
+
+@media (min-width: 768px) {
+  .cp-footer__inner { grid-template-columns: 1.4fr 1fr 1fr; padding-block: 64px; }
+}
+
+.cp-footer__list { margin-top: 16px; }
+.cp-footer__list li + li { margin-top: 10px; }
+
+.cp-footer__base {
+  margin-top: 48px;
+  border-top: 1px solid var(--cp-line);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--cp-slate);
+}
+
+@media (min-width: 640px) {
+  .cp-footer__base { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+/* ── MOTION ───────────────────────────────────────────────────────────── */
+
+/*
+ * globals.css sets `scroll-behavior: smooth` on <html> and this section
+ * animates on hover throughout. Both are decorative; neither should fire for
+ * a visitor who has asked for less.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .cp-root *,
+  .cp-root *::before,
+  .cp-root *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
