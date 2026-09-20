@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { AgeDonut, AttentionBars, RegionBars } from '@/components/checkpoint/Charts';
 import HeroVideo from '@/components/checkpoint/HeroVideo';
+import SectionNav from '@/components/checkpoint/SectionNav';
 import {
   Container,
   Eyebrow,
@@ -112,6 +113,9 @@ export const metadata: Metadata = {
 export default function CheckpointProposalPage() {
   return (
     <>
+      {/* Fixed prev/next arrows. Walks the same anchors as the header nav. */}
+      <SectionNav />
+
       {/* ------------------------------------------------------------------ */}
       {/* Hero                                                                */}
       {/* ------------------------------------------------------------------ */}

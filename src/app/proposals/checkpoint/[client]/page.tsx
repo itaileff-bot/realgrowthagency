@@ -195,6 +195,31 @@ function Cover({ client }: { client: CheckpointClient }) {
         */}
         {!client.media && <p className="cp-cover__credit">{HERO_MEDIA.alt}</p>}
       </Container>
+
+      {/*
+        The cover is a page, not the first screen of a longer one, so scrolling
+        does nothing on a laptop: there is nothing underneath. A reader whose
+        first instinct is to scroll finds no answer and no way on.
+
+        This is that answer, in the place the instinct looks. It is labelled
+        rather than a bare chevron, because a down arrow on a page that does
+        not scroll is a promise the page cannot keep; the words say where it
+        actually goes.
+      */}
+      <a href={CHECKPOINT_PATH} className="cp-scrollcue">
+        <span className="cp-eyebrow cp-scrollcue__label">Read the proposal</span>
+        <span aria-hidden="true" className="cp-scrollcue__arrow">
+          <svg viewBox="0 0 24 24" fill="none" focusable="false">
+            <path
+              d="M12 5v14M6 13l6 6 6-6"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+      </a>
     </section>
   );
 }

@@ -107,6 +107,10 @@
  */
 .cp-root nav {
   position: static;
+  /* globals.css pins bare `nav` with top/left/right: 0. Those are inert while
+     position is static, but they stay in force for any nav here that sets its
+     own position, so they are cleared rather than left as a trap. */
+  inset: auto;
   z-index: auto;
   background: none;
   backdrop-filter: none;
@@ -951,16 +955,21 @@
     linear-gradient(to bottom, #232734 0%, #1a1d26 55%, #15171e 100%);
 }
 
+/*
+ * The bottom padding clears the continue cue, which is pinned to the foot of
+ * the section. On a phone the copy runs long enough to reach it, and measured
+ * at 375px the cue sat on top of the meta line.
+ */
 .cp-cover__inner {
   width: 100%;
   padding-top: calc(var(--cp-header) + 48px);
-  padding-bottom: 48px;
+  padding-bottom: 116px;
 }
 
 @media (min-width: 768px) {
   .cp-cover__inner {
     padding-top: calc(var(--cp-header) + 72px);
-    padding-bottom: 64px;
+    padding-bottom: 132px;
   }
 }
 
@@ -1077,6 +1086,120 @@
   color: var(--cp-slate);
   opacity: 0.75;
 }
+
+/* ── WAYFINDING ────────────────────────────────────────── */
+
+/*
+ * The cover's way on. Centred at the foot of the screen because that is where
+ * a reader's eye goes when the page appears to end, and labelled because the
+ * cover does not scroll: an unlabelled chevron would read as "there is more
+ * below" when what it means is "the document is through here".
+ */
+.cp-scrollcue {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  color: var(--cp-stone);
+  transition: color 0.2s;
+}
+
+@media (min-width: 768px) {
+  .cp-scrollcue { bottom: 28px; }
+}
+
+.cp-scrollcue:hover { color: var(--cp-lime); }
+
+.cp-scrollcue__label { color: inherit; }
+
+.cp-scrollcue__arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--cp-line);
+  border-radius: 999px;
+  background: rgba(21, 23, 30, 0.7);
+  backdrop-filter: blur(8px);
+  animation: cp-cue 2.6s ease-in-out infinite;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.cp-scrollcue:hover .cp-scrollcue__arrow {
+  border-color: var(--cp-lime);
+  background: rgba(200, 255, 46, 0.12);
+}
+
+.cp-scrollcue__arrow svg { width: 18px; height: 18px; display: block; }
+
+/* A small drift, not a bounce. It should catch the eye once, not nag. */
+@keyframes cp-cue {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/*
+ * Previous and next section on the proposal. Bottom right, out of the reading
+ * column at every width, and sized to the 44px touch target so it works on a
+ * phone where the header nav is behind a burger.
+ */
+/*
+ * `.cp-root` prefixed, and it has to be.
+ *
+ * globals.css styles bare `nav` as the agency site's fixed white header bar,
+ * and the block near the top of this file undoes that with
+ * `.cp-root nav { position: static; ... }`. That reset outweighs a lone
+ * `.cp-stepnav` class, so without the prefix this control silently rendered
+ * in flow at the top of the document: it worked once, then scrolled away with
+ * the page and stopped receiving clicks entirely.
+ */
+.cp-root .cp-stepnav {
+  position: fixed;
+  /* All four sides in one declaration. Setting only right/bottom left the
+     top/left: 0 from the globals `nav` rule in force, which stretched this
+     control across the whole viewport and swallowed clicks on the page
+     underneath it. */
+  inset: auto 16px 16px auto;
+  /* Under the header, which is 50, so the two never overlap ambiguously. */
+  z-index: 45;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .cp-root .cp-stepnav { inset: auto 24px 24px auto; }
+}
+
+.cp-stepnav__btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--cp-line);
+  border-radius: 999px;
+  background: rgba(21, 23, 30, 0.86);
+  backdrop-filter: blur(10px);
+  color: var(--cp-cream);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, opacity 0.2s;
+}
+
+.cp-stepnav__btn:hover:not([aria-disabled='true']) {
+  background: var(--cp-lime);
+  border-color: var(--cp-lime);
+  color: var(--cp-ink);
+}
+
+.cp-stepnav__btn[aria-disabled='true'] { opacity: 0.32; cursor: default; }
+
+.cp-stepnav__btn svg { width: 18px; height: 18px; display: block; }
 
 /* ── CHARTS ───────────────────────────────────────────────────────────── */
 
@@ -1462,6 +1585,15 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /*
+   * `scroll-behavior` lives on <html>, which is not inside .cp-root, so the
+   * rule above never reached it and smooth scrolling kept firing. It matters
+   * more now that the arrows move the page for you: an animated jump the
+   * reader did not scroll themselves is exactly the motion being opted out of.
+   */
+  html {
     scroll-behavior: auto !important;
   }
 }
