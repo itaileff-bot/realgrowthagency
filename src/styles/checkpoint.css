@@ -560,6 +560,13 @@
   .cp-header__cta { display: inline-flex; }
 }
 
+/*
+ * On a cover page there is no nav and no burger, so the header would be a
+ * wordmark and empty space below 640px. The call to action is the only thing
+ * in there, so it stays visible at every width.
+ */
+.cp-header__cta--solo { display: inline-flex; }
+
 .cp-burger {
   display: flex;
   flex-direction: column;
@@ -828,6 +835,188 @@
 }
 
 .cp-hero__meta { margin: 40px 0 0; }
+
+/* ── COVER ────────────────────────────────────────────── */
+
+/*
+ * The per-prospect cover at /proposals/checkpoint/<slug>.
+ *
+ * It reuses .cp-hero__img and .cp-hero__video because HeroVideo names its own
+ * class; what differs is the scrim set. The proposal hero protects a narrow
+ * left column and leaves the right side of the world open, so it can use a
+ * hard horizontal gradient. Here the copy runs the full measure, so the
+ * darkening has to be even: a vertical gradient plus a vignette, no horizontal
+ * wipe, or the last card in the row would sit on bare footage.
+ */
+
+.cp-cover {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  /* svh, not vh: on iOS the address bar makes 100vh taller than the visible
+     viewport, which pushes the meta line under the browser chrome. */
+  min-height: 100svh;
+}
+
+.cp-cover__bg { position: absolute; inset: 0; z-index: -1; }
+
+.cp-cover__scrim { position: absolute; inset: 0; }
+
+/*
+ * Heavier at the top, where the lockup and headline sit, and at the very
+ * bottom behind the meta line; lightest through the middle third, which is
+ * where the world stays visible behind the lead and the three points.
+ */
+.cp-cover__scrim--v {
+  background: linear-gradient(
+    to bottom,
+    rgba(21, 23, 30, 0.9) 0%,
+    rgba(21, 23, 30, 0.74) 42%,
+    rgba(21, 23, 30, 0.82) 72%,
+    #15171e 100%
+  );
+}
+
+.cp-cover__scrim--r {
+  background: radial-gradient(
+    ellipse at 50% 42%,
+    rgba(21, 23, 30, 0) 0%,
+    rgba(21, 23, 30, 0.18) 55%,
+    rgba(21, 23, 30, 0.62) 100%
+  );
+}
+
+.cp-cover__scrim--grid { opacity: 0.4; }
+
+.cp-cover__inner {
+  width: 100%;
+  padding-top: calc(var(--cp-header) + 48px);
+  padding-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .cp-cover__inner {
+    padding-top: calc(var(--cp-header) + 72px);
+    padding-bottom: 64px;
+  }
+}
+
+.cp-cover__lockup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+}
+
+.cp-cover__client {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--cp-cream);
+}
+
+@media (min-width: 768px) {
+  .cp-cover__client { font-size: 20px; }
+}
+
+.cp-cover__badge {
+  border: 1px solid var(--cp-line);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cp-slate);
+  white-space: nowrap;
+}
+
+.cp-cover__title {
+  font-size: 34px;
+  line-height: 1.05;
+  margin: 24px 0 0;
+  max-width: 16em;
+}
+
+@media (min-width: 768px) {
+  .cp-cover__title { font-size: 50px; }
+}
+
+@media (min-width: 1024px) {
+  .cp-cover__title { font-size: 62px; }
+}
+
+.cp-cover__lead {
+  margin: 20px 0 0;
+  max-width: 40em;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--cp-stone);
+}
+
+@media (min-width: 768px) {
+  .cp-cover__lead { font-size: 19px; }
+}
+
+/*
+ * Three reasons, level. The hairline above each one does the work the deck
+ * used a box for, and because every item is a grid cell in the same row they
+ * start on one line whatever the copy length.
+ */
+.cp-cover__points {
+  display: grid;
+  gap: 24px;
+  margin: 44px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .cp-cover__points { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+}
+
+.cp-cover__point { border-top: 1px solid var(--cp-line); padding-top: 16px; }
+
+.cp-cover__pointnum { margin: 0; }
+
+.cp-cover__pointlabel {
+  margin: 10px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--cp-cream);
+}
+
+/*
+ * Stone, not slate, and the difference is not stylistic. Slate is the body
+ * tone everywhere else on the site, where it sits on flat ink and measures
+ * about 8:1. Over moving footage the brightest frames lift the ground enough
+ * to drop it to 3.7:1, under the 4.5:1 this size needs. Stone holds ~6:1
+ * against the same measured worst case.
+ */
+.cp-cover__pointbody {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cp-stone);
+}
+
+.cp-cover__actions { margin-top: 40px; }
+
+.cp-cover__meta { margin: 36px 0 0; }
+
+.cp-cover__credit {
+  margin: 10px 0 0;
+  max-width: 46em;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--cp-slate);
+  opacity: 0.75;
+}
 
 /* ── CHARTS ───────────────────────────────────────────────────────────── */
 

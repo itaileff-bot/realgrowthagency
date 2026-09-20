@@ -1,8 +1,10 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import {
   CHECKPOINT_NAME,
+  CHECKPOINT_PATH,
   CHECKPOINT_SITE,
   CHECKPOINT_TAGLINE,
   ENQUIRY_MAILTO,
@@ -23,6 +25,17 @@ import {
  *
  * Both degrade cleanly: with JavaScript disabled the nav is still a list of
  * working anchor links, because that is all it is underneath.
+ *
+ * ONE HEADER, TWO KINDS OF PAGE
+ * The layout wraps both the proposal and the per-prospect cover pages, but the
+ * section anchors only exist on the proposal. Rendering them on a cover would
+ * give a prospect a row of links that do nothing, so the route decides: on the
+ * cover the nav is dropped entirely and the one call to action points back at
+ * the proposal's closing section by URL rather than by fragment.
+ *
+ * `usePathname` is used rather than probing the DOM because it is known during
+ * the server render, so the header is correct in the first painted frame; a
+ * DOM probe would flash six dead links and then remove them.
  */
 
 function Wordmark() {
@@ -44,6 +57,10 @@ export function CheckpointHeader() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>(NAV_SECTIONS[0].id);
   const [scrolled, setScrolled] = useState(false);
+
+  // The proposal is the only page carrying the section anchors.
+  const onProposal = usePathname() === CHECKPOINT_PATH;
+  const ctaHref = onProposal ? '#next' : `${CHECKPOINT_PATH}#next`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -93,39 +110,53 @@ export function CheckpointHeader() {
         <div className="cp-header__bar">
           <Wordmark />
 
-          <nav className="cp-nav" aria-label="Proposal sections">
-            {NAV_SECTIONS.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="cp-nav__link"
-                aria-current={active === section.id ? 'true' : undefined}
-              >
-                {section.label}
-              </a>
-            ))}
-          </nav>
+          {onProposal && (
+            <nav className="cp-nav" aria-label="Proposal sections">
+              {NAV_SECTIONS.map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className="cp-nav__link"
+                  aria-current={active === section.id ? 'true' : undefined}
+                >
+                  {section.label}
+                </a>
+              ))}
+            </nav>
+          )}
 
           <div className="cp-header__actions">
-            <a href="#next" className="cp-btn cp-btn--primary cp-btn--sm cp-header__cta">
+            {/*
+              With no drawer to fall back to on a cover page, the call to
+              action has to survive below 640px, where it is normally hidden
+              behind the burger.
+            */}
+            <a
+              href={ctaHref}
+              className={`cp-btn cp-btn--primary cp-btn--sm cp-header__cta${
+                onProposal ? '' : ' cp-header__cta--solo'
+              }`}
+            >
               Book a brief
             </a>
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              aria-expanded={open}
-              aria-controls="cp-mobile-nav"
-              aria-label={open ? 'Close menu' : 'Open menu'}
-              className={`cp-burger${open ? ' cp-burger--open' : ''}`}
-            >
-              <span />
-              <span />
-              <span />
-            </button>
+            {onProposal && (
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                aria-controls="cp-mobile-nav"
+                aria-label={open ? 'Close menu' : 'Open menu'}
+                className={`cp-burger${open ? ' cp-burger--open' : ''}`}
+              >
+                <span />
+                <span />
+                <span />
+              </button>
+            )}
           </div>
         </div>
 
-        {open && (
+        {onProposal && open && (
           <div id="cp-mobile-nav" className="cp-drawer">
             <ul>
               {NAV_SECTIONS.map((section) => (
