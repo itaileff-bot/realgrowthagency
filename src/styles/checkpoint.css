@@ -638,19 +638,57 @@
 .cp-hero__bg { position: absolute; inset: 0; z-index: -1; }
 
 /*
- * Scaled past its own edges on purpose. The source is a gameplay capture, so
- * the Roblox HUD rings the frame: currency counters top-right, the action rail
- * down both sides. At 1:1 those sit behind the header and read as someone
- * else's interface bolted onto the page. 1.45 pushes the ring outside the band
- * and leaves only the atrium, which is the part that sells.
+ * The still and the video are the same picture, so they are sized identically
+ * and stacked. No transform on either: the Roblox HUD that rings a gameplay
+ * capture is cropped out at encode time now, which is what the old
+ * `transform: scale(1.45)` was faking. Cropping the source beats scaling the
+ * element — it removes the HUD exactly rather than approximately, and it stops
+ * upscaling a 1328px screenshot across a 1920px band.
  */
-.cp-hero__img {
+.cp-hero__img,
+.cp-hero__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.7;
-  transform: scale(1.45);
+}
+
+.cp-hero__img {
+  opacity: 0.88;
+}
+
+/*
+ * The video fades up over the still. Because the poster is frame 0 of this
+ * exact file at the same crop, the two images are identical at the moment the
+ * fade starts, so what the eye sees is a still picture beginning to move
+ * rather than one image dissolving into another.
+ *
+ * It ends at the same 0.7 the still sits at, so the scrims above keep working
+ * out to the same contrast either way and the headline never changes legibility
+ * depending on whether the video loaded.
+ */
+.cp-hero__video {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.cp-hero__video.is-playing {
+  opacity: 0.88;
+}
+
+/*
+ * Belt and braces for reduced motion. HeroVideo already withholds the src, so
+ * nothing downloads or plays; this keeps the element invisible even if the
+ * component's gate were ever bypassed.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .cp-hero__video,
+  .cp-hero__video.is-playing {
+    opacity: 0;
+  }
 }
 
 /*
@@ -661,12 +699,19 @@
  */
 .cp-hero__scrim { position: absolute; inset: 0; }
 
+/*
+ * Full ink across the copy column, then a fast fall-off so the world is
+ * genuinely visible on the right rather than a faint texture. The hold at 62%
+ * is not arbitrary: `.cp-hero__copy` is capped at 768px inside a 1152px
+ * measure, so the headline never extends past roughly 62% of the band and
+ * everything left of that stays protected.
+ */
 .cp-hero__scrim--h {
   background: linear-gradient(
     to right,
     #15171e 0%,
-    rgba(21, 23, 30, 0.8) 50%,
-    rgba(21, 23, 30, 0.4) 100%
+    rgba(21, 23, 30, 0.94) 62%,
+    rgba(21, 23, 30, 0.22) 100%
   );
 }
 
@@ -679,12 +724,17 @@
   );
 }
 
+/*
+ * A gentle vignette only. This used to close down to 0.85 at the edges, which
+ * on top of the horizontal scrim left the footage almost invisible; its job is
+ * to settle the corners, not to darken the picture.
+ */
 .cp-hero__scrim--r {
   background: radial-gradient(
-    ellipse at 62% 42%,
+    ellipse at 66% 45%,
     rgba(21, 23, 30, 0) 0%,
-    rgba(21, 23, 30, 0.35) 45%,
-    rgba(21, 23, 30, 0.85) 100%
+    rgba(21, 23, 30, 0.12) 55%,
+    rgba(21, 23, 30, 0.5) 100%
   );
 }
 

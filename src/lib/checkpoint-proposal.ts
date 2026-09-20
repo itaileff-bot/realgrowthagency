@@ -131,6 +131,43 @@ export const NAV_SECTIONS = [
 /* 01 Hero                                                                    */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * Ambient hero footage: a 19-second silent loop of Checkpoint's own Boho Salon
+ * world, cut from the four world shots in the deck as a slow camera move.
+ *
+ * It is Checkpoint's own world on purpose. A Roblox pitch could be dressed up
+ * with gameplay footage pulled off the web, but that footage belongs to
+ * whoever captured it, and a studio's own world is the more persuasive thing
+ * to put behind its own headline anyway.
+ *
+ * The Roblox HUD is cropped out at encode time rather than hidden behind a CSS
+ * transform, and `poster` is frame 0 of `video` at that same crop, so the still
+ * and the first frame of the loop are identical pixels.
+ *
+ * To swap in real gameplay capture later: replace the file at `video`, export
+ * its first frame to `poster`, and change nothing else. Keep it silent (no
+ * audio track at all, which is what lets it autoplay), 16:9, and under ~2MB.
+ */
+export const HERO_MEDIA = {
+  /*
+   * Two encodes of the same 19-second loop, not a size optimisation but a
+   * coverage one: HeroVideo asks the browser which it can decode and attaches
+   * only that URL, so nothing downloads twice.
+   *
+   * H.264 is the universal baseline and what Safari wants for hardware decode.
+   * VP9 covers the Chromium builds compiled without proprietary codecs, where
+   * the MP4 fails outright with MEDIA_ERR_SRC_NOT_SUPPORTED. At matched
+   * quality VP9 also came out slightly smaller here, so most visitors get the
+   * lighter file as a side effect.
+   */
+  video: {
+    webm: "/video/checkpoint-boho-loop.webm",
+    mp4: "/video/checkpoint-boho-loop.mp4",
+  },
+  poster: "/images/checkpoint/hero-poster.webp",
+  alt: "The Boho Salon world in Roblox: a domed atrium in blush and gold, its styling floor, spa suite and reception hall.",
+} as const;
+
 export const HERO = {
   eyebrow: "Roblox worlds, built and run for brands",
   title: "Worlds your audience actually wants to play in",

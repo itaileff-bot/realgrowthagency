@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { AgeDonut, AttentionBars, RegionBars } from '@/components/checkpoint/Charts';
+import HeroVideo from '@/components/checkpoint/HeroVideo';
 import {
   Container,
   Eyebrow,
@@ -24,6 +25,7 @@ import {
   ENQUIRY_MAILTO,
   FORMATS,
   HERO,
+  HERO_MEDIA,
   IDENTITY,
   INVESTMENT,
   LIVE_OPS,
@@ -115,14 +117,22 @@ export default function CheckpointProposalPage() {
       {/* ------------------------------------------------------------------ */}
       <section id="top" className="cp-hero">
         <div className="cp-hero__bg">
+          {/*
+            Still first, motion on top. The <img> is the hero's actual
+            background and always renders; HeroVideo fades a silent loop of the
+            same footage over it on wide screens where motion is welcome. With
+            JS off, on a phone, or under reduced-motion, this still is the
+            whole hero and nothing extra is downloaded.
+          */}
           <img
-            src={BOHO.gallery[0].src}
+            src={HERO_MEDIA.poster}
             alt=""
             width={1600}
-            height={896}
+            height={900}
             className="cp-hero__img"
             fetchPriority="high"
           />
+          <HeroVideo src={HERO_MEDIA.video} poster={HERO_MEDIA.poster} />
           <div className="cp-hero__scrim cp-hero__scrim--h" />
           <div className="cp-hero__scrim cp-hero__scrim--v" />
           <div className="cp-hero__scrim cp-hero__scrim--r" />
