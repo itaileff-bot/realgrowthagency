@@ -7,7 +7,6 @@ import {
   CHECKPOINT_PATH,
   CHECKPOINT_SITE,
   CHECKPOINT_TAGLINE,
-  ENQUIRY_MAILTO,
   NAV_SECTIONS,
   NEXT_STEPS,
 } from '@/lib/checkpoint-proposal';
@@ -210,11 +209,6 @@ export function CheckpointFooter() {
           <ul className="cp-footer__list cp-body--sm">
             <li className="cp-cream">{NEXT_STEPS.contact.name}</li>
             <li>
-              <a href={ENQUIRY_MAILTO} className="cp-link">
-                {NEXT_STEPS.contact.email}
-              </a>
-            </li>
-            <li>
               <a href={`tel:${NEXT_STEPS.contact.phone}`} className="cp-link">
                 {NEXT_STEPS.contact.phoneDisplay}
               </a>
@@ -236,18 +230,13 @@ export function CheckpointFooter() {
           <p className="cp-eyebrow">Prepared by</p>
           <ul className="cp-footer__list cp-body--sm">
             <li>
-              <a href="/" className="cp-link">
-                Real Growth Agency
-              </a>
-            </li>
-            <li>
               <a
-                href="https://www.cpg-advisory.com"
+                href={CHECKPOINT_SITE}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cp-link"
               >
-                Brand Refinery
+                Checkpoint Games
               </a>
             </li>
           </ul>

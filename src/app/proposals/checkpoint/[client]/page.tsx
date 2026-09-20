@@ -14,7 +14,6 @@ import {
   CHECKPOINT_NAME,
   CHECKPOINT_PATH,
   CHECKPOINT_TAGLINE,
-  ENQUIRY_MAILTO,
   HERO_MEDIA,
 } from '@/lib/checkpoint-proposal';
 
@@ -180,12 +179,6 @@ function Cover({ client }: { client: CheckpointClient }) {
 
         <p className="cp-eyebrow cp-eyebrow--xs cp-cover__meta">
           Prepared {client.prepared}
-          <span aria-hidden="true" className="cp-source__sep">
-            /
-          </span>
-          <a href={ENQUIRY_MAILTO} className="cp-link">
-            Reply to this proposal
-          </a>
         </p>
 
         {/*
@@ -207,7 +200,7 @@ function Cover({ client }: { client: CheckpointClient }) {
         actually goes.
       */}
       <a href={CHECKPOINT_PATH} className="cp-scrollcue">
-        <span className="cp-eyebrow cp-scrollcue__label">Read the proposal</span>
+        <span className="cp-eyebrow cp-scrollcue__label">Continue to Checkpoint</span>
         <span aria-hidden="true" className="cp-scrollcue__arrow">
           <svg viewBox="0 0 24 24" fill="none" focusable="false">
             <path

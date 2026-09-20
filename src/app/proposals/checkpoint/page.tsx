@@ -23,7 +23,7 @@ import {
   CHECKPOINT_SITE,
   CHECKPOINT_TAGLINE,
   COLLAB,
-  ENQUIRY_MAILTO,
+  BOOKING_URL,
   FORMATS,
   HERO,
   HERO_MEDIA,
@@ -793,8 +793,13 @@ export default function CheckpointProposalPage() {
             </ol>
 
             <div className="cp-actions">
-              <a href={ENQUIRY_MAILTO} className="cp-btn cp-btn--primary">
-                Email to book a brief
+              <a
+                href={BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cp-btn cp-btn--primary"
+              >
+                Book a 45-minute brief
               </a>
               <a href={`tel:${NEXT_STEPS.contact.phone}`} className="cp-btn cp-btn--ghost">
                 Call {NEXT_STEPS.contact.phoneDisplay}
@@ -829,11 +834,6 @@ export default function CheckpointProposalPage() {
                   {NEXT_STEPS.contact.role}
                 </p>
                 <ul className="cp-contact__list cp-body--sm">
-                  <li>
-                    <a href={ENQUIRY_MAILTO} className="cp-link cp-link--bright">
-                      {NEXT_STEPS.contact.email}
-                    </a>
-                  </li>
                   <li>
                     <a href={`tel:${NEXT_STEPS.contact.phone}`} className="cp-link cp-link--bright">
                       {NEXT_STEPS.contact.phoneDisplay}

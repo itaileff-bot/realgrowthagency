@@ -29,10 +29,14 @@
 
 /*
  * Contact details are declared here rather than imported, because this repo
- * has no site-identity module. They match the booking link and the contact
- * address already used on the Real Growth Agency homepage.
+ * has no site-identity module.
+ *
+ * There is deliberately no address here. The only one available was the
+ * agency's own, and an agency reply-to on a page credited to Checkpoint Games
+ * reads as the wrong company having written the pitch. The response paths are
+ * the booking link and the phone. To put one back, declare it here and render
+ * it again in the footer and in section 17.
  */
-const CONTACT_EMAIL = "hello@realgrowthagency.com";
 const CONTACT_PHONE = "+1-424-397-3047";
 const CONTACT_PHONE_DISPLAY = "(424) 397-3047";
 export const BOOKING_URL =
@@ -651,15 +655,9 @@ export const NEXT_STEPS = {
   contact: {
     name: "Itai Leffler",
     role: "Brand Builder, Checkpoint",
-    email: CONTACT_EMAIL,
     phone: CONTACT_PHONE,
     phoneDisplay: CONTACT_PHONE_DISPLAY,
     site: CHECKPOINT_SITE,
     siteLabel: "checkpointgames.co.uk",
   },
 } as const;
-
-/** Prefilled subject line so an enquiry from this page is identifiable. */
-export const ENQUIRY_MAILTO = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-  "Checkpoint Roblox world: brief session"
-)}`;
