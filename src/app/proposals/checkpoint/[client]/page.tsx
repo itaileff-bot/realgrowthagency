@@ -104,7 +104,10 @@ function Cover({ client }: { client: CheckpointClient }) {
   const media = clientMedia(client);
 
   return (
-    <section id="top" className="cp-cover">
+    <section
+      id="top"
+      className={`cp-cover${media.bright ? ' cp-cover--bright' : ''}`}
+    >
       <div className="cp-cover__bg">
         {/*
           Still first, motion on top, exactly as the proposal hero does it: the
@@ -112,15 +115,23 @@ function Cover({ client }: { client: CheckpointClient }) {
           a silent loop over it only on wide screens where motion is welcome.
           On a phone, under reduced motion, or with JS off, this still is the
           whole background and no video is downloaded.
+
+          A licensed clip can arrive without a still, and a frame cannot be
+          extracted from a file we do not hold. The gradient ground is what
+          renders then, so the cover reads as designed rather than as broken.
         */}
-        <img
-          src={media.poster}
-          alt=""
-          width={1600}
-          height={900}
-          className="cp-hero__img"
-          fetchPriority="high"
-        />
+        {media.poster ? (
+          <img
+            src={media.poster}
+            alt=""
+            width={1600}
+            height={900}
+            className="cp-hero__img"
+            fetchPriority="high"
+          />
+        ) : (
+          <div className="cp-cover__ground" />
+        )}
         <HeroVideo src={media.video} poster={media.poster} />
         <div className="cp-cover__scrim cp-cover__scrim--v" />
         <div className="cp-cover__scrim cp-cover__scrim--r" />

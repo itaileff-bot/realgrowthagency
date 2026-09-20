@@ -38,8 +38,9 @@ import { useEffect, useRef, useState } from 'react';
  */
 
 export interface HeroVideoSources {
-  webm: string;
   mp4: string;
+  /** Optional: our own loops ship a VP9 twin, a licensed clip may not. */
+  webm?: string;
 }
 
 /**
@@ -51,8 +52,12 @@ export interface HeroVideoSources {
  *
  * `canPlayType` returns "probably" | "maybe" | "" — anything non-empty is a
  * usable answer, and "" for VP9 is the signal to fall back to H.264.
+ *
+ * With no WebM twin there is nothing to choose and the MP4 is attached
+ * directly, which is correct for every browser a prospect will open this in.
  */
 function pickSource(el: HTMLVideoElement, sources: HeroVideoSources): string {
+  if (!sources.webm) return sources.mp4;
   return el.canPlayType('video/webm; codecs="vp9"') ? sources.webm : sources.mp4;
 }
 
@@ -61,7 +66,8 @@ export default function HeroVideo({
   poster,
 }: {
   src: HeroVideoSources;
-  poster: string;
+  /** Omitted when no still exists; the ground behind shows through instead. */
+  poster?: string;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
