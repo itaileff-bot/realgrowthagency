@@ -60,6 +60,14 @@ export interface CheckpointClient {
    */
   headline: string;
   lead: string;
+  /**
+   * The share-card and search description. Separate from `lead` because the
+   * two have different jobs: the lead is read on a screen with the footage
+   * behind it and can take its time, while a description is cut off around
+   * 155 characters in a link preview. Writing one string for both means
+   * either a thin lead or a truncated card.
+   */
+  summary: string;
   /** Three reasons this studio, kept short enough to read in one pass. */
   points: { label: string; body: string }[];
   /**
@@ -89,7 +97,9 @@ const RHAPSODY: CheckpointClient = {
   name: "Project Rhapsody",
   confidential: true,
   headline: "A world your audience chooses to spend time in",
-  lead: "Not an ad they scroll past. A place they come back to, built and run by the studio behind a 41-million-visit world, with the traffic engine that fills it from day one.",
+  lead: "Not an ad they scroll past, but a place they come back to: to build, to learn, to engage, to create. Bring an engineer's mindset and see what is possible. We can take you to space and show you limitless room to make things. Built and run by the studio behind a 41-million-visit world, with the traffic engine that fills it from day one.",
+  summary:
+    "A world your audience chooses to spend time in: built, run and filled by the studio behind a 41-million-visit Roblox world.",
   points: [
     {
       label: "A studio that has already built one",

@@ -175,7 +175,12 @@ export const HERO_MEDIA = {
 
 export const HERO = {
   eyebrow: "Roblox worlds, built and run for brands",
-  title: "Worlds your audience actually wants to play in",
+  /*
+   * Two lines, and the break is the line. The studio's own reel opens on
+   * exactly this pair, so the proposal opens where the film opens.
+   */
+  titleLines: ["We build worlds.", "You bring the brand."],
+  title: "We build worlds. You bring the brand.",
   lead: "Gen Z and Gen Alpha do not watch brands. They play with them. Checkpoint designs, builds and runs the world they play in, and the traffic engine that fills it.",
   meta: `Checkpoint brand partnerships ${CHECKPOINT_DECK_DATE}`,
   /*

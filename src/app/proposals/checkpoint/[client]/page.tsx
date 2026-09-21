@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!client) return {};
 
   const title = `${CHECKPOINT_NAME} for ${client.name}`;
-  const description = client.lead;
+  const description = client.summary;
 
   return {
     /* `absolute` escapes the root layout's "%s | Real Growth Agency" template:
@@ -162,11 +162,6 @@ function Cover({ client }: { client: CheckpointClient }) {
           ))}
         </ul>
 
-        <div className="cp-actions cp-cover__actions">
-          <a href={CHECKPOINT_PATH} className="cp-btn cp-btn--primary">
-            Continue to Checkpoint
-          </a>
-        </div>
 
         {/*
           The background is real work, so it is worth saying whose. Only the

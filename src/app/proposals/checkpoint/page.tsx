@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import type { Metadata } from 'next';
 import { AgeDonut, AttentionBars, RegionBars } from '@/components/checkpoint/Charts';
 import HeroVideo from '@/components/checkpoint/HeroVideo';
@@ -153,7 +154,19 @@ export default function CheckpointProposalPage() {
               <Eyebrow>{HERO.eyebrow}</Eyebrow>
             </div>
 
-            <h1 className="cp-display cp-hero__title">{HERO.title}</h1>
+            <h1 className="cp-display cp-hero__title">
+              {/*
+                The space between the lines is deliberate. Each line is its own
+                block so the break is the copy's, but without it the accessible
+                name runs the two sentences together as "worlds.You".
+              */}
+              {HERO.titleLines.map((line, i) => (
+                <Fragment key={line}>
+                  {i > 0 && ' '}
+                  <span>{line}</span>
+                </Fragment>
+              ))}
+            </h1>
             <p className="cp-hero__lead">{HERO.lead}</p>
 
             <div className="cp-actions">

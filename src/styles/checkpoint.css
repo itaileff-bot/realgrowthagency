@@ -768,6 +768,10 @@
 
 .cp-hero__kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 
+/* Each line its own block, so the break is the copy's rather than the
+   column width's. */
+.cp-hero__title span { display: block; }
+
 .cp-hero__title {
   font-size: 43px;
   line-height: 1.06;
@@ -909,8 +913,8 @@
   background: linear-gradient(
     to bottom,
     rgba(21, 23, 30, 0.88) 0%,
-    rgba(21, 23, 30, 0.5) 38%,
-    rgba(21, 23, 30, 0.58) 72%,
+    rgba(21, 23, 30, 0.56) 38%,
+    rgba(21, 23, 30, 0.62) 72%,
     #15171e 100%
   );
 }
@@ -960,13 +964,12 @@
 
 /*
  * The bottom padding clears the continue cue, which is pinned to the foot of
- * the section. Only above 768px, because that is the only width the cue
- * appears at; see .cp-scrollcue.
+ * the section at every width.
  */
 .cp-cover__inner {
   width: 100%;
   padding-top: calc(var(--cp-header) + 48px);
-  padding-bottom: 48px;
+  padding-bottom: 148px;
 }
 
 @media (min-width: 768px) {
@@ -1022,12 +1025,18 @@
   .cp-cover__title { font-size: 78px; }
 }
 
+/*
+ * Cream, not stone, and measured rather than chosen. The lead grew long
+ * enough to reach across the brightest part of the frame, where stone fell to
+ * 3.9:1 at 1100px. Cream buys about a stop and a half without deepening the
+ * scrim, which is the alternative and costs the footage.
+ */
 .cp-cover__lead {
   margin: 20px 0 0;
   max-width: 40em;
   font-size: 21px;
   line-height: 1.6;
-  color: var(--cp-stone);
+  color: var(--cp-cream);
 }
 
 @media (min-width: 768px) {
@@ -1077,8 +1086,6 @@
   color: var(--cp-stone);
 }
 
-.cp-cover__actions { margin-top: 40px; }
-
 .cp-cover__credit {
   margin: 10px 0 0;
   max-width: 46em;
@@ -1097,19 +1104,17 @@
  * below" when what it means is "the document is through here".
  */
 /*
- * Desktop only, and that is the whole point of it. The cue answers one
- * problem: on a laptop the cover fills the screen exactly, so a reader who
- * scrolls gets nothing and has no way on. A phone does not have that problem,
- * because the cover is taller than the viewport there and scrolling brings
- * the button itself into view. Below 768px the cue would be a second control
- * saying what the button already says, directly underneath it.
+ * Shown at every width, because it is now the only way on. It was once
+ * desktop-only, to avoid repeating the call to action that sat directly above
+ * it on a phone; with that button gone there is nothing to repeat, and a
+ * cover with no way forward on mobile would be a dead end.
  */
 .cp-scrollcue {
   position: absolute;
   left: 50%;
   bottom: 20px;
   transform: translateX(-50%);
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
@@ -1119,7 +1124,7 @@
 }
 
 @media (min-width: 768px) {
-  .cp-scrollcue { display: flex; bottom: 28px; }
+  .cp-scrollcue { bottom: 28px; }
 }
 
 .cp-scrollcue:hover { color: var(--cp-lime); }
