@@ -186,11 +186,11 @@ export default function CheckpointProposalPage() {
       {/* ------------------------------------------------------------------ */}
       {/*
         The shift and the platform's size were two sections making one
-        argument, so they are one section. `wide` drops the centre measure:
-        five figures and a comparison chart in a 1152px column is a squeeze,
-        and this is the band that has to land hardest.
+        argument, so they are one section. It keeps the same centre measure as
+        every other band: a single full-width section read as a break in the
+        page rather than as emphasis.
       */}
-      <Section id="opportunity" tone="raised" wide>
+      <Section id="opportunity" tone="raised">
         <SectionHeader number={SHIFT.number} label={SHIFT.label} title={SHIFT.title} />
 
         <div className="cp-split">
