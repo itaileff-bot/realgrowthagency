@@ -350,7 +350,7 @@ export default function CheckpointProposalPage() {
           })}
         </div>
 
-        <p className="cp-display cp-lime" style={{ marginTop: 32, fontSize: 22 }}>
+        <p className="cp-display cp-lime" style={{ marginTop: 32, fontSize: 28 }}>
           {CHANGE.kicker}
         </p>
 
@@ -382,7 +382,7 @@ export default function CheckpointProposalPage() {
           ))}
         </div>
 
-        <p className="cp-display cp-cream" style={{ marginTop: 32, fontSize: 19, fontWeight: 500 }}>
+        <p className="cp-display cp-cream" style={{ marginTop: 32, fontSize: 24, fontWeight: 500 }}>
           {TEAM.kicker}
         </p>
       </Section>
@@ -558,7 +558,7 @@ export default function CheckpointProposalPage() {
                 />
               </div>
               <figcaption className="cp-asset__cap">
-                <p className="cp-display cp-cream" style={{ fontSize: 16 }}>
+                <p className="cp-display cp-cream" style={{ fontSize: 20 }}>
                   {asset.title}
                 </p>
                 <p className="cp-body cp-body--sm" style={{ marginTop: 6 }}>
@@ -647,7 +647,7 @@ export default function CheckpointProposalPage() {
           ))}
         </ol>
 
-        <p className="cp-display cp-lime" style={{ marginTop: 48, fontSize: 22 }}>
+        <p className="cp-display cp-lime" style={{ marginTop: 48, fontSize: 28 }}>
           {PROCESS.kicker}
         </p>
       </Section>
@@ -669,7 +669,7 @@ export default function CheckpointProposalPage() {
           <div className="cp-split__third">
             <div className="cp-hub cp-gridlines">
               <Eyebrow tone="accent">{TRAFFIC.hubLabel}</Eyebrow>
-              <p className="cp-display cp-cream" style={{ marginTop: 16, fontSize: 24 }}>
+              <p className="cp-display cp-cream" style={{ marginTop: 16, fontSize: 30 }}>
                 {TRAFFIC.hubName}
               </p>
               <span aria-hidden="true" className="cp-hub__rule" />
@@ -775,7 +775,7 @@ export default function CheckpointProposalPage() {
           {INVESTMENT.ongoing.map((item) => (
             <div key={item.label} className="cp-card cp-card--deep">
               <Eyebrow>{item.label}</Eyebrow>
-              <p className="cp-display cp-cream" style={{ marginTop: 12, fontSize: 18 }}>
+              <p className="cp-display cp-cream" style={{ marginTop: 12, fontSize: 23 }}>
                 {item.value}
               </p>
               <div className="cp-card__foot">
@@ -875,7 +875,7 @@ export default function CheckpointProposalPage() {
                 }}
               >
                 <Eyebrow tone="accent">Your contact</Eyebrow>
-                <p className="cp-display cp-cream" style={{ marginTop: 16, fontSize: 20 }}>
+                <p className="cp-display cp-cream" style={{ marginTop: 16, fontSize: 25 }}>
                   {NEXT_STEPS.contact.name}
                 </p>
                 <p className="cp-body cp-body--sm" style={{ marginTop: 4 }}>
@@ -937,7 +937,7 @@ export default function CheckpointProposalPage() {
             marginTop: 32,
             borderTop: '1px solid var(--cp-line)',
             paddingTop: 24,
-            fontSize: 13,
+            fontSize: 16,
           }}
         >
           Figures are current as at {CHECKPOINT_DECK_DATE}. Platform metrics move quarter to
