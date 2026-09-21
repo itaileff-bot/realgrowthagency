@@ -413,14 +413,27 @@ export const BOHO = {
     body: "Grand atrium, styling floor, spa and tanning suites, plus a custom catalogue interface for hair, clothing and accessories.",
   },
   resultsHeading: "Results, September 2026",
+  /*
+   * The same five figures the studio site publishes, in its order. Revenue is
+   * promoted from the sentence it used to sit in: it was already being
+   * claimed, and a figure buried in prose is a figure nobody reads.
+   */
   results: [
-    { value: "41.2M", label: "game visits" },
     { value: "1.4M", label: "community members" },
-    { value: "270K", label: "favorites" },
+    { value: "41.2M", label: "game visits" },
     { value: "31M+", label: "YouTube views" },
+    { value: "270K", label: "favourites" },
+    { value: "Millions", label: "USD revenue generated" },
   ],
-  award:
-    "Bloxy Award winner, Best Clothing Company (5th Annual Bloxy Awards, 2018). Millions of dollars in revenue generated.",
+  resultsNote: "Boho Salon community and reach, September 2026",
+  /** The studio site's own framing of what the world is made of. */
+  tags: ["Interiors", "Custom interfaces", "Social play"],
+  recognition: {
+    eyebrow: "Bloxy Award winner",
+    title: "Best Clothing Company",
+    subject: "Boho Salon",
+    event: "5th Annual Bloxy Awards, 2018",
+  },
   gallery: [
     {
       src: "/images/checkpoint/boho-atrium.webp",
@@ -480,34 +493,45 @@ export const COLLAB = {
 /* 11 What we build                                                           */
 /* -------------------------------------------------------------------------- */
 
+/*
+ * Lifted from the studio's own "What we can build" page rather than the deck.
+ *
+ * The deck framed this as four products to buy (Signature World, Pop-Up, Game
+ * Integration, Avatar Items). The studio site frames it as five things it can
+ * make, starting from whatever the client already has. That is the better
+ * frame for a first conversation, and it is the one Checkpoint actually
+ * publishes, so the proposal should not contradict it.
+ *
+ * Rendered as a native disclosure list, open by default: a reader scanning the
+ * pitch sees all five, and anyone who wants the page shorter can collapse
+ * them. No JavaScript is involved.
+ */
 export const FORMATS = {
   number: "11",
-  label: "What we build",
-  title: "Four ways onto the platform",
+  label: "What we can build",
+  title: "Your idea. A playable possibility.",
+  lead: "Full Roblox experiences, branded worlds and special collaborations. We can help shape the right starting point.",
+  ctaLabel: "Let us find your starting point",
   options: [
     {
-      name: "Signature World",
-      body: "A brand-owned world designed around your story and goals.",
-      src: "/images/checkpoint/format-signature-world.webp",
-      alt: "A branded Roblox showroom with cars on a polished floor and a player avatar in the foreground.",
+      name: "Full Roblox experiences",
+      body: "From the first concept to connected worlds, gameplay and interfaces. We bring the pieces together into an experience people can actually play.",
     },
     {
-      name: "Pop-Up Experience",
-      body: "A smaller, time-boxed world or mini-game for a launch or season.",
-      src: "/images/checkpoint/format-popup.webp",
-      alt: "A Roblox mini-game in progress, showing an order ticket, a mixing bowl and a completion meter at 14 percent.",
+      name: "Branded worlds and collaborations",
+      body: "Bring your brand or a special collaboration into Roblox, from a complete world to custom assets and interactive activities. Our Lil Pump salon seat and tattoo gun show how a distinctive identity can become part of the experience.",
     },
     {
-      name: "Game Integration",
-      body: "Your brand placed inside an already popular Roblox game.",
-      src: "/images/checkpoint/format-integration.webp",
-      alt: "A branded inventory panel inside an existing Roblox game, showing collectible items and an equip button.",
+      name: "Interactive systems",
+      body: "Crafting, collection, trading, vehicles, building and more. Purposeful mechanics that give players something to do.",
     },
     {
-      name: "Avatar Items",
-      body: "Limited-edition virtual wearables players collect and show off.",
-      src: "/images/checkpoint/format-avatar-items.webp",
-      alt: "The Roblox avatar catalogue interface with hair, clothing and accessory items alongside a dressed avatar.",
+      name: "Custom interfaces",
+      body: "Inventories, catalogues, shops and avatar customisation. Clear interfaces designed around the way people play.",
+    },
+    {
+      name: "Build on what is there",
+      body: "New features, refreshed environments or improvements to an existing Roblox game. We start by understanding what you already have.",
     },
   ],
   addOnsLabel: "Add-ons",

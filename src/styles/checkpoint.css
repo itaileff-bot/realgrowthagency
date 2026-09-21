@@ -1201,6 +1201,176 @@
 
 .cp-stepnav__btn svg { width: 18px; height: 18px; display: block; }
 
+/* ── WHAT WE CAN BUILD ───────────────────────────────────── */
+
+/*
+ * The studio site's split: a standing statement on the left, the list of what
+ * that means on the right. On one column the statement simply leads.
+ */
+.cp-build { display: grid; gap: 40px; align-items: start; }
+
+@media (min-width: 900px) {
+  .cp-build {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 64px;
+  }
+  /* Sticks while the list is read, which is the point of putting a claim
+     beside a list rather than above it. */
+  .cp-build__intro { position: sticky; top: calc(var(--cp-header) + 32px); }
+}
+
+.cp-build__title { margin: 24px 0 0; }
+
+.cp-build__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--cp-line);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cp-cream);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.cp-build__cta:hover { color: var(--cp-lime); border-color: var(--cp-lime); }
+
+.cp-build__list { margin: 0; padding: 0; list-style: none; }
+
+.cp-build__item { border-top: 1px solid var(--cp-line); }
+
+.cp-build__list > li:last-child .cp-build__item { border-bottom: 1px solid var(--cp-line); }
+
+.cp-build__summary {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 20px;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s;
+}
+
+/* The default disclosure triangle, removed in both engines. */
+.cp-build__summary::-webkit-details-marker { display: none; }
+.cp-build__summary::marker { content: ''; }
+
+.cp-build__summary:hover .cp-build__name { color: var(--cp-lime); }
+
+.cp-build__n { color: var(--cp-slate); }
+
+.cp-build__name {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--cp-cream);
+  transition: color 0.2s;
+}
+
+@media (min-width: 768px) {
+  .cp-build__name { font-size: 21px; }
+}
+
+/*
+ * The toggle: a minus when open, a plus when closed, drawn from one bar and a
+ * pseudo-element rather than two icons, so there is nothing to swap and no
+ * second asset to keep in step.
+ */
+.cp-build__mark {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  justify-self: end;
+}
+
+.cp-build__mark::before,
+.cp-build__mark::after {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1.5px;
+  background: var(--cp-slate);
+  transition: transform 0.25s, background-color 0.2s;
+}
+
+.cp-build__mark::after { transform: rotate(90deg); }
+
+/* Open: the upright bar folds into the flat one, leaving a minus. */
+.cp-build__item[open] .cp-build__mark::after { transform: rotate(0deg); }
+
+.cp-build__summary:hover .cp-build__mark::before,
+.cp-build__summary:hover .cp-build__mark::after { background: var(--cp-lime); }
+
+.cp-build__body {
+  /* Aligned under the name, clear of the number column. */
+  margin: 0 0 24px;
+  padding-left: 44px;
+  max-width: 44em;
+}
+
+@media (max-width: 479px) {
+  .cp-build__summary { grid-template-columns: 28px minmax(0, 1fr) 18px; }
+  .cp-build__body { padding-left: 0; }
+}
+
+/* ── RECOGNITION ─────────────────────────────────────────── */
+
+.cp-recog {
+  margin-top: 24px;
+  border: 1px solid var(--cp-line);
+  border-radius: 16px;
+  background: var(--cp-ink-raise);
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .cp-recog { padding: 40px; }
+}
+
+.cp-recog__title {
+  margin: 16px 0 0;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--cp-cream);
+}
+
+@media (min-width: 768px) {
+  .cp-recog__title { font-size: 34px; }
+}
+
+.cp-recog__meta { margin: 16px 0 0; }
+
+/* The attribution and the make-up of the world, under the figures. */
+.cp-results__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 32px;
+  border-top: 1px solid rgba(200, 255, 46, 0.2);
+  padding-top: 24px;
+}
+
+.cp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cp-tags li {
+  border: 1px solid rgba(200, 255, 46, 0.28);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  color: var(--cp-stone);
+}
+
 /* ── CHARTS ───────────────────────────────────────────────────────────── */
 
 .cp-donut { display: flex; flex-direction: column; align-items: center; gap: 32px; }
@@ -1339,18 +1509,6 @@
 @media (min-width: 640px) {
   .cp-asset__cap { padding: 24px; }
 }
-
-.cp-format { overflow: hidden; border-radius: 16px; border: 1px solid var(--cp-line); background: var(--cp-ink-raise); display: flex; flex-direction: column; height: 100%; transition: border-color 0.2s; }
-.cp-format:hover { border-color: rgba(200, 255, 46, 0.45); }
-.cp-format__frame { aspect-ratio: 16 / 9; border-bottom: 1px solid var(--cp-line); }
-.cp-format__frame img { width: 100%; height: 100%; object-fit: cover; }
-.cp-format__body { display: flex; flex-direction: column; flex: 1; padding: 20px; }
-
-@media (min-width: 640px) {
-  .cp-format__body { padding: 24px; }
-}
-
-.cp-format__head { display: flex; align-items: baseline; gap: 12px; }
 
 /* ── TEAM ─────────────────────────────────────────────────────────────── */
 
@@ -1501,7 +1659,7 @@
 .cp-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 24px 0 0; }
 
 @media (min-width: 1024px) {
-  .cp-results { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cp-results { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
 }
 
 .cp-results dd { margin: 0; }

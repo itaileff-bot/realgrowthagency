@@ -462,15 +462,30 @@ export default function CheckpointProposalPage() {
               </div>
             ))}
           </dl>
-          <p
-            className="cp-body cp-body--sm cp-body--bright"
-            style={{
-              marginTop: 32,
-              borderTop: '1px solid rgba(200,255,46,0.2)',
-              paddingTop: 24,
-            }}
-          >
-            {BOHO.award}
+          <div className="cp-results__foot">
+            <p className="cp-body cp-body--sm">{BOHO.resultsNote}</p>
+            <ul className="cp-tags">
+              {BOHO.tags.map((tag) => (
+                <li key={tag}>{tag}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/*
+          The award used to be the tail of a sentence. The studio site gives it
+          a panel of its own, which is the right weight: an industry award is
+          third-party proof, and proof is the scarcest thing in a pitch.
+        */}
+        <div className="cp-recog">
+          <p className="cp-eyebrow cp-eyebrow--accent">{BOHO.recognition.eyebrow}</p>
+          <p className="cp-display cp-recog__title">{BOHO.recognition.title}</p>
+          <p className="cp-body cp-body--sm cp-recog__meta">
+            {BOHO.recognition.subject}
+            <span aria-hidden="true" className="cp-source__sep">
+              /
+            </span>
+            {BOHO.recognition.event}
           </p>
         </div>
 
@@ -535,37 +550,46 @@ export default function CheckpointProposalPage() {
       {/* 11  What we build                                      anchor: build */}
       {/* ------------------------------------------------------------------ */}
       <Section id="build">
-        <SectionHeader number={FORMATS.number} label={FORMATS.label} title={FORMATS.title} />
+        <div className="cp-build">
+          <div className="cp-build__intro">
+            <Kicker number={FORMATS.number} label={FORMATS.label} />
+            <h2 className="cp-display cp-h2 cp-build__title">{FORMATS.title}</h2>
+            <p className="cp-body" style={{ marginTop: 20, maxWidth: '30em' }}>
+              {FORMATS.lead}
+            </p>
+            <a href="#next" className="cp-build__cta">
+              {FORMATS.ctaLabel}
+              <span aria-hidden="true">&#8599;</span>
+            </a>
+          </div>
 
-        <div className="cp-grid cp-grid--2 cp-grid--gap-lg">
-          {FORMATS.options.map((option, i) => (
-            <article key={option.name} className="cp-format">
-              <div className="cp-format__frame">
-                <img
-                  src={option.src}
-                  alt={option.alt}
-                  width={1100}
-                  height={619}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-              <div className="cp-format__body">
-                <div className="cp-format__head">
-                  <span className="cp-eyebrow cp-eyebrow--accent">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="cp-display cp-h3">{option.name}</h3>
-                </div>
-                <p className="cp-body cp-body--sm" style={{ marginTop: 10 }}>
-                  {option.body}
-                </p>
-              </div>
-            </article>
-          ))}
+          {/*
+            Native <details>, open by default. A disclosure list is the right
+            shape here: five things, each a sentence or two, and a reader who
+            only wants the headings can close them. Using the element the
+            browser already ships means it works with no JavaScript, carries
+            its own keyboard and screen-reader behaviour, and cannot get out of
+            sync with a piece of state.
+          */}
+          <ul className="cp-build__list">
+            {FORMATS.options.map((option, i) => (
+              <li key={option.name}>
+                <details open className="cp-build__item">
+                  <summary className="cp-build__summary">
+                    <span className="cp-eyebrow cp-eyebrow--xs cp-build__n">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="cp-build__name">{option.name}</span>
+                    <span aria-hidden="true" className="cp-build__mark" />
+                  </summary>
+                  <p className="cp-body cp-body--sm cp-build__body">{option.body}</p>
+                </details>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="cp-card cp-card--deep" style={{ marginTop: 24 }}>
+        <div className="cp-card cp-card--deep" style={{ marginTop: 40 }}>
           <Eyebrow tone="accent">{FORMATS.addOnsLabel}</Eyebrow>
           <ul className="cp-pills">
             {FORMATS.addOns.map((addOn) => (
