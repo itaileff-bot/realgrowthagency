@@ -59,7 +59,6 @@ export function CheckpointHeader() {
 
   // The proposal is the only page carrying the section anchors.
   const onProposal = usePathname() === CHECKPOINT_PATH;
-  const ctaHref = onProposal ? '#next' : `${CHECKPOINT_PATH}#next`;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -124,21 +123,16 @@ export function CheckpointHeader() {
             </nav>
           )}
 
-          <div className="cp-header__actions">
-            {/*
-              With no drawer to fall back to on a cover page, the call to
-              action has to survive below 640px, where it is normally hidden
-              behind the burger.
-            */}
-            <a
-              href={ctaHref}
-              className={`cp-btn cp-btn--primary cp-btn--sm cp-header__cta${
-                onProposal ? '' : ' cp-header__cta--solo'
-              }`}
-            >
-              Book a brief
-            </a>
-            {onProposal && (
+          {/*
+            Nothing in the header on a cover page but the mark. The cover makes
+            one offer, in its own words, in the middle of the screen; a second
+            call to action in the corner competes with it rather than helping.
+          */}
+          {onProposal && (
+            <div className="cp-header__actions">
+              <a href="#next" className="cp-btn cp-btn--primary cp-btn--sm cp-header__cta">
+                Book a brief
+              </a>
               <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
@@ -151,8 +145,8 @@ export function CheckpointHeader() {
                 <span />
                 <span />
               </button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
 
         {onProposal && open && (

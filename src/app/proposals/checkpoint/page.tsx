@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { AgeDonut, AttentionBars, RegionBars } from '@/components/checkpoint/Charts';
 import HeroVideo from '@/components/checkpoint/HeroVideo';
 import SectionNav from '@/components/checkpoint/SectionNav';
+import Showreel from '@/components/checkpoint/Showreel';
 import {
   Container,
   Eyebrow,
@@ -35,6 +36,7 @@ import {
   PLATFORM_STATS,
   PROCESS,
   PROOF,
+  REEL,
   SAFETY,
   SHIFT,
   SOURCES,
@@ -386,7 +388,29 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 09  Boho Salon                                          anchor: work */}
+      {/* 09  Showreel                                                        */}
+      {/* ------------------------------------------------------------------ */}
+      <Section id="reel" tone="raised">
+        <div className="cp-reel__head">
+          <div>
+            <Kicker number={REEL.number} label={REEL.label} />
+            <h2 className="cp-display cp-h2" style={{ marginTop: 20 }}>
+              {REEL.title}
+            </h2>
+          </div>
+          <p className="cp-body cp-reel__lead">{REEL.lead}</p>
+        </div>
+
+        <Showreel />
+
+        <div className="cp-reel__foot">
+          <p className="cp-body cp-body--sm">{REEL.caption}</p>
+          <p className="cp-eyebrow cp-eyebrow--xs">{REEL.covers}</p>
+        </div>
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 10  Boho Salon                                          anchor: work */}
       {/* ------------------------------------------------------------------ */}
       <Section id="work">
         <div className="cp-section__head">

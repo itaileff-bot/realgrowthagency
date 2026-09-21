@@ -62,8 +62,6 @@ export interface CheckpointClient {
   lead: string;
   /** Three reasons this studio, kept short enough to read in one pass. */
   points: { label: string; body: string }[];
-  /** Rendered as "Prepared <prepared>". */
-  prepared: string;
   /**
    * Optional bespoke cover footage. Defaults to the Checkpoint world loop,
    * which is real work and always present.
@@ -106,7 +104,6 @@ const RHAPSODY: CheckpointClient = {
       body: "Brief, concept, build, launch, then live operations. Launch is the beginning of the channel, not the end of the project.",
     },
   ],
-  prepared: "September 2026",
   /*
    * Licensed from the motionsites library and re-encoded to self-host: the
    * 17.7MB, 10-second, 1764x1176 source with an audio track became a silent

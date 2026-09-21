@@ -395,11 +395,42 @@ export const TEAM = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
+/* 09 Showreel                                                                */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The studio's own sixty-second reel, as published on checkpointgames.co.uk.
+ *
+ * Unlike the hero loop this is a film, not wallpaper: it has a voice, captions
+ * and an edit, so it is click-to-play with sound and controls rather than an
+ * autoplaying ambience. `preload="none"` means a reader who never presses play
+ * never pays for it, which is the whole reason a 60-second file is acceptable
+ * on a page that also carries a hero loop.
+ */
+export const REEL = {
+  number: "09",
+  label: "Our work in 60 seconds",
+  title: "The wider picture.",
+  lead: "Worlds, interfaces and gameplay. See them in motion.",
+  tag: "Selected work / Showreel",
+  duration: "01:00",
+  caption: "Real gameplay, from the worlds we are building.",
+  covers: "Environments / Interfaces / Interactive systems",
+  video: {
+    mp4: "/video/checkpoint-showreel.mp4",
+    webm: "/video/checkpoint-showreel.webm",
+  },
+  poster: "/images/checkpoint/showreel-poster.webp",
+  label_a11y:
+    "Checkpoint showreel: sixty seconds of gameplay from Boho Salon, The Lab and Slime Game.",
+} as const;
+
+/* -------------------------------------------------------------------------- */
 /* 09 Boho Salon case study                                                   */
 /* -------------------------------------------------------------------------- */
 
 export const BOHO = {
-  number: "09",
+  number: "10",
   label: "Our worlds",
   title: "Boho Salon",
   subtitle: "Checkpoint original, beauty and fashion",
@@ -464,7 +495,7 @@ export const BOHO = {
 /* -------------------------------------------------------------------------- */
 
 export const COLLAB = {
-  number: "10",
+  number: "11",
   label: "Our worlds",
   title: "Custom assets for a creator collaboration",
   tag: "Creator partnership",
@@ -507,7 +538,7 @@ export const COLLAB = {
  * them. No JavaScript is involved.
  */
 export const FORMATS = {
-  number: "11",
+  number: "12",
   label: "What we can build",
   title: "Your idea. A playable possibility.",
   lead: "Full Roblox experiences, branded worlds and special collaborations. We can help shape the right starting point.",
@@ -547,7 +578,7 @@ export const FORMATS = {
 /* -------------------------------------------------------------------------- */
 
 export const PROCESS = {
-  number: "12",
+  number: "13",
   label: "How we work",
   title: "From brief to live world in 8 to 16 weeks",
   kicker: "Launch is a beginning, not the end.",
@@ -565,7 +596,7 @@ export const PROCESS = {
 /* -------------------------------------------------------------------------- */
 
 export const TRAFFIC = {
-  number: "13",
+  number: "14",
   label: "Go to market",
   title: "Every world ships with a traffic engine",
   hubLabel: "The hub",
@@ -584,7 +615,7 @@ export const TRAFFIC = {
 /* -------------------------------------------------------------------------- */
 
 export const LIVE_OPS = {
-  number: "14",
+  number: "15",
   label: "Keeping it alive",
   title: "A world is a channel, not a campaign",
   body: [
@@ -608,7 +639,7 @@ export const LIVE_OPS = {
 /* -------------------------------------------------------------------------- */
 
 export const INVESTMENT = {
-  number: "15",
+  number: "16",
   label: "Investment",
   title: "Scoped to the brief",
   disclaimer:
@@ -652,7 +683,7 @@ export const INVESTMENT = {
 /* -------------------------------------------------------------------------- */
 
 export const SAFETY = {
-  number: "16",
+  number: "17",
   label: "Safe by design",
   title: "Brand safety and compliance built in",
   points: [
@@ -668,7 +699,7 @@ export const SAFETY = {
 /* -------------------------------------------------------------------------- */
 
 export const NEXT_STEPS = {
-  number: "17",
+  number: "18",
   label: "Next steps",
   title: "Let us build your world",
   steps: [

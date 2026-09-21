@@ -564,12 +564,6 @@
   .cp-header__cta { display: inline-flex; }
 }
 
-/*
- * On a cover page there is no nav and no burger, so the header would be a
- * wordmark and empty space below 640px. The call to action is the only thing
- * in there, so it stays visible at every width.
- */
-.cp-header__cta--solo { display: inline-flex; }
 
 .cp-burger {
   display: flex;
@@ -957,13 +951,13 @@
 
 /*
  * The bottom padding clears the continue cue, which is pinned to the foot of
- * the section. On a phone the copy runs long enough to reach it, and measured
- * at 375px the cue sat on top of the meta line.
+ * the section. Only above 768px, because that is the only width the cue
+ * appears at; see .cp-scrollcue.
  */
 .cp-cover__inner {
   width: 100%;
   padding-top: calc(var(--cp-header) + 48px);
-  padding-bottom: 116px;
+  padding-bottom: 48px;
 }
 
 @media (min-width: 768px) {
@@ -1076,8 +1070,6 @@
 
 .cp-cover__actions { margin-top: 40px; }
 
-.cp-cover__meta { margin: 36px 0 0; }
-
 .cp-cover__credit {
   margin: 10px 0 0;
   max-width: 46em;
@@ -1095,12 +1087,20 @@
  * cover does not scroll: an unlabelled chevron would read as "there is more
  * below" when what it means is "the document is through here".
  */
+/*
+ * Desktop only, and that is the whole point of it. The cue answers one
+ * problem: on a laptop the cover fills the screen exactly, so a reader who
+ * scrolls gets nothing and has no way on. A phone does not have that problem,
+ * because the cover is taller than the viewport there and scrolling brings
+ * the button itself into view. Below 768px the cue would be a second control
+ * saying what the button already says, directly underneath it.
+ */
 .cp-scrollcue {
   position: absolute;
   left: 50%;
   bottom: 20px;
   transform: translateX(-50%);
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 10px;
@@ -1110,7 +1110,7 @@
 }
 
 @media (min-width: 768px) {
-  .cp-scrollcue { bottom: 28px; }
+  .cp-scrollcue { display: flex; bottom: 28px; }
 }
 
 .cp-scrollcue:hover { color: var(--cp-lime); }
@@ -1369,6 +1369,122 @@
   padding: 4px 12px;
   font-size: 12px;
   color: var(--cp-stone);
+}
+
+/* ── SHOWREEL ─────────────────────────────────────────────── */
+
+.cp-reel__head {
+  display: grid;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 900px) {
+  .cp-reel__head {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 48px;
+  }
+  /* Sits on the title's baseline rather than the top of its box. */
+  .cp-reel__lead { padding-bottom: 6px; }
+}
+
+.cp-reel__lead { max-width: 26em; }
+
+/*
+ * The reel is letterboxed in the file itself, so the stage is a plain 16:9
+ * box: cropping to fill would cut the captions burned into the lower third.
+ */
+.cp-reel__stage {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--cp-line);
+  border-radius: 16px;
+  background: #000;
+}
+
+.cp-reel__video { display: block; width: 100%; height: 100%; }
+
+/*
+ * A light veil over the poster only. It lifts the play button and the two
+ * labels off a busy frame, and it is gone the moment the film starts: nothing
+ * should sit between a viewer and the thing they asked to watch.
+ */
+.cp-reel__veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(21, 23, 30, 0.55) 0%,
+    rgba(21, 23, 30, 0.3) 45%,
+    rgba(21, 23, 30, 0.6) 100%
+  );
+}
+
+.cp-reel__tag,
+.cp-reel__time {
+  position: absolute;
+  top: 16px;
+  margin: 0;
+  color: var(--cp-cream);
+  pointer-events: none;
+}
+
+.cp-reel__tag { left: 16px; }
+.cp-reel__time { right: 16px; font-variant-numeric: tabular-nums; }
+
+@media (min-width: 768px) {
+  .cp-reel__tag { left: 24px; }
+  .cp-reel__time { right: 24px; }
+  .cp-reel__tag,
+  .cp-reel__time { top: 24px; }
+}
+
+.cp-reel__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border: 1px solid rgba(253, 252, 249, 0.5);
+  border-radius: 999px;
+  background: rgba(21, 23, 30, 0.55);
+  backdrop-filter: blur(8px);
+  color: var(--cp-cream);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+@media (min-width: 768px) {
+  .cp-reel__play { width: 80px; height: 80px; }
+}
+
+.cp-reel__play:hover {
+  background: var(--cp-lime);
+  border-color: var(--cp-lime);
+  color: var(--cp-ink);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+.cp-reel__play svg { width: 26px; height: 26px; display: block; }
+
+@media (min-width: 768px) {
+  .cp-reel__play svg { width: 32px; height: 32px; }
+}
+
+.cp-reel__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-top: 20px;
 }
 
 /* ── CHARTS ───────────────────────────────────────────────────────────── */

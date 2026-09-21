@@ -10,7 +10,6 @@ import {
   type CheckpointClient,
 } from '@/lib/checkpoint-clients';
 import {
-  BOOKING_URL,
   CHECKPOINT_NAME,
   CHECKPOINT_PATH,
   CHECKPOINT_TAGLINE,
@@ -165,21 +164,9 @@ function Cover({ client }: { client: CheckpointClient }) {
 
         <div className="cp-actions cp-cover__actions">
           <a href={CHECKPOINT_PATH} className="cp-btn cp-btn--primary">
-            Open the proposal
-          </a>
-          <a
-            href={BOOKING_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cp-btn cp-btn--ghost"
-          >
-            Book a 45-minute brief
+            Continue to Checkpoint
           </a>
         </div>
-
-        <p className="cp-eyebrow cp-eyebrow--xs cp-cover__meta">
-          Prepared {client.prepared}
-        </p>
 
         {/*
           The background is real work, so it is worth saying whose. Only the
