@@ -35,6 +35,7 @@ import {
   PLATFORM_STATS,
   PROCESS,
   PROOF,
+  REVENUE,
   REEL,
   SAFETY,
   SHIFT,
@@ -612,7 +613,51 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 10  How we work                                                     */}
+      {/* 10  How a world earns                                               */}
+      {/* ------------------------------------------------------------------ */}
+      <Section tone="raised">
+        <SectionHeader
+          number={REVENUE.number}
+          label={REVENUE.label}
+          title={REVENUE.title}
+          lead={REVENUE.lead}
+        />
+
+        <ol className="cp-streams">
+          {REVENUE.streams.map((stream, i) => (
+            <li key={stream.name} className="cp-stream">
+              <div className="cp-stream__head">
+                <span className="cp-eyebrow cp-eyebrow--xs cp-stream__n">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="cp-display cp-stream__name">{stream.name}</h3>
+                <Tag>{stream.tag}</Tag>
+              </div>
+
+              <p className="cp-body cp-body--sm cp-stream__body">{stream.body}</p>
+
+              <ul className="cp-stream__points">
+                {stream.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+
+              {'caveat' in stream && stream.caveat && (
+                <p className="cp-stream__caveat">
+                  <span className="cp-eyebrow cp-eyebrow--xs">Worth knowing</span>
+                  {stream.caveat}
+                </p>
+              )}
+            </li>
+          ))}
+        </ol>
+
+        <SourceNote source={REVENUE.source} />
+        <SourceNote source={REVENUE.commerceSource} />
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 11  How we work                                                     */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <SectionHeader number={PROCESS.number} label={PROCESS.label} title={PROCESS.title} />
@@ -641,7 +686,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 11  Go to market                                                    */}
+      {/* 12  Go to market                                                    */}
       {/* ------------------------------------------------------------------ */}
       <Section>
         <SectionHeader number={TRAFFIC.number} label={TRAFFIC.label} title={TRAFFIC.title} />
@@ -679,7 +724,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 12  Keeping it alive                                                */}
+      {/* 13  Keeping it alive                                                */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <SectionHeader number={LIVE_OPS.number} label={LIVE_OPS.label} title={LIVE_OPS.title} />
@@ -710,7 +755,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 13  Investment                                    anchor: investment */}
+      {/* 14  Investment                                    anchor: investment */}
       {/* ------------------------------------------------------------------ */}
       <Section id="investment">
         <SectionHeader
@@ -775,7 +820,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 14  Safe by design                                                  */}
+      {/* 15  Safe by design                                                  */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <SectionHeader number={SAFETY.number} label={SAFETY.label} title={SAFETY.title} />
@@ -805,7 +850,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 15  Next steps                                          anchor: next */}
+      {/* 16  Next steps                                          anchor: next */}
       {/* ------------------------------------------------------------------ */}
       <Section id="next">
         <div className="cp-split">

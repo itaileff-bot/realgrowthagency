@@ -89,6 +89,12 @@ export const SOURCES = {
     full: "Checkpoint studio analytics for Boho Salon, as at September 2026.",
     verified: true,
   },
+  robloxMonetisation: {
+    short: "Roblox creator monetisation terms",
+    full: "Roblox creator monetisation and Developer Exchange terms, including Marketplace revenue shares and advertising eligibility. Rates are set by Roblox and change; specific references available on request.",
+    verified: false,
+  },
+
   robloxPolicy: {
     short: "Roblox advertising and safety standards",
     full: "Roblox Community Standards, Advertising Standards and age-verification policy.",
@@ -127,7 +133,7 @@ export const NAV_SECTIONS = [
 ] as const;
 
 /* -------------------------------------------------------------------------- */
-/* 01 Hero                                                                    */
+/* 01 Hero                                                                  */
 /* -------------------------------------------------------------------------- */
 
 /**
@@ -186,7 +192,7 @@ export const HERO = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 02 The shift                                                               */
+/* 02 The shift                                                             */
 /* -------------------------------------------------------------------------- */
 
 export const SHIFT = {
@@ -210,7 +216,7 @@ export const SHIFT = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 03 Roblox by the numbers                                                   */
+/* 02 Roblox by the numbers, part of The shift                              */
 /* -------------------------------------------------------------------------- */
 
 export const PLATFORM_STATS = [
@@ -253,7 +259,7 @@ export const PLATFORM = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 04 Who is there                                                            */
+/* 03 Who is there                                                          */
 /* -------------------------------------------------------------------------- */
 
 export const AUDIENCE = {
@@ -283,7 +289,7 @@ export const AUDIENCE = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 06 Brands already winning                                                  */
+/* 04 Brands already winning                                                */
 /* -------------------------------------------------------------------------- */
 
 export const PROOF = {
@@ -309,7 +315,7 @@ export const PROOF = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 07 What has changed                                                        */
+/* 04 What has changed, part of Brands already winning                      */
 /* -------------------------------------------------------------------------- */
 
 export const CHANGE = {
@@ -336,7 +342,7 @@ export const CHANGE = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 08 Who we are                                                              */
+/* 05 Who we are                                                            */
 /* -------------------------------------------------------------------------- */
 
 export const TEAM = {
@@ -371,7 +377,7 @@ export const TEAM = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 09 Showreel                                                                */
+/* 06 Showreel                                                              */
 /* -------------------------------------------------------------------------- */
 
 /**
@@ -402,7 +408,7 @@ export const REEL = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 09 Boho Salon case study                                                   */
+/* 07 Boho Salon case study                                                 */
 /* -------------------------------------------------------------------------- */
 
 export const BOHO = {
@@ -467,7 +473,7 @@ export const BOHO = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 10 Lil Pump collaboration                                                  */
+/* 08 Lil Pump collaboration                                                */
 /* -------------------------------------------------------------------------- */
 
 export const COLLAB = {
@@ -497,7 +503,7 @@ export const COLLAB = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 11 What we build                                                           */
+/* 09 What we can build                                                     */
 /* -------------------------------------------------------------------------- */
 
 /*
@@ -550,11 +556,95 @@ export const FORMATS = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 12 How we work                                                             */
+/* 10 How a world earns                                                       */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * The revenue section, and the one that changes what kind of conversation the
+ * pitch is. Everything before it argues for attention; this argues that the
+ * attention has a P&L line underneath it.
+ *
+ * ON THE FIGURES
+ * The rates, revenue shares and eligibility thresholds here are Roblox's, not
+ * ours, and Roblox changes them. They are attributed to its published
+ * monetisation terms and marked unverified, which is this file's way of
+ * saying checkable but unchecked: confirm the current numbers before any of
+ * it is quoted to a client.
+ *
+ * Written for any prospect on purpose. The order reflects how well each
+ * stream tends to suit a brand-owned world, which holds generally; where a
+ * particular pitch needs a different order, reorder it in that pitch rather
+ * than bending the general case.
+ */
+export const REVENUE = {
+  number: "10",
+  label: "How a world earns",
+  title: "Five ways a world pays for itself",
+  lead: "What turns the build from a marketing expense into a P&L line, in rough order of how well each suits a brand-owned world.",
+  streams: [
+    {
+      name: "In-experience purchases",
+      tag: "Biggest lever",
+      body: "Game passes for one-time unlocks, developer products for repeatables, both sold for Robux.",
+      points: [
+        "Roblox takes its platform cut and the experience owner keeps the remainder",
+        "Cashed out through the Developer Exchange at $0.0038 per earned Robux, rising to $0.0054 on qualifying earnings from verified US players aged 18 and over",
+        "Minimum 30,000 earned Robux to cash out",
+      ],
+    },
+    {
+      name: "Avatar items and UGC",
+      tag: "Where partners pay",
+      body: "Branded wearables sold on the Marketplace or inside the world. This is where a brand partner is monetised rather than merely featured.",
+      points: [
+        "Marketplace sale: the creator takes 30%",
+        "In-world sale: the creator takes 30% and the world owner a further 40%",
+        "The Marketplace share rises with price: 50% at twice the floor, 70% at six times or above",
+      ],
+    },
+    {
+      name: "Immersive advertising",
+      tag: "Opt in",
+      body: "Billboards in 2D and 3D, portal ads that teleport a player into a branded world, and rewarded video, bought through Roblox's Ads Manager and its programmatic partners.",
+      points: [
+        "Eligible experiences opt in and earn a share of that ad revenue",
+        "Rewarded video needs 2,000 or more unique monthly visitors, a public experience, ID verification and two-factor authentication",
+        "Completion rates are reported above 90%",
+      ],
+      caveat:
+        "On the official ad network the experience owner cannot choose which brands appear.",
+    },
+    {
+      name: "Direct brand integrations",
+      tag: "Highest margin",
+      body: "Sponsored placements sold directly instead of through the ad network: a branded zone, a sponsored mission, a named vehicle, a portal into a partner's own world.",
+      points: [
+        "Negotiated off platform, so the world keeps 100% of the fee",
+        "Full control over which brands appear, which the ad network does not offer",
+        "Maps onto the sponsorship a brand already sells in physical space",
+      ],
+    },
+    {
+      name: "Physical commerce",
+      tag: "Real product",
+      body: "Roblox's Commerce APIs with Shopify let eligible brands sell physical product inside the experience to US users aged 13 and over, usually bundling an avatar item with the purchase.",
+      points: [
+        "The Approved Merchandiser Program ties physical retail purchases to redeemable in-world rewards",
+        "One early partner reported six-figure commerce revenue in its first few weeks",
+        "Roughly 90% of those orders came through the in-world integration",
+      ],
+    },
+  ],
+  source: "robloxMonetisation" as SourceKey,
+  commerceSource: "brandReporting" as SourceKey,
+} as const;
+
+/* -------------------------------------------------------------------------- */
+/* 11 How we work                                                           */
 /* -------------------------------------------------------------------------- */
 
 export const PROCESS = {
-  number: "10",
+  number: "11",
   label: "How we work",
   title: "From brief to live world in 8 to 16 weeks",
   kicker: "Launch is a beginning, not the end.",
@@ -568,11 +658,11 @@ export const PROCESS = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 13 Go to market                                                            */
+/* 12 Go to market                                                          */
 /* -------------------------------------------------------------------------- */
 
 export const TRAFFIC = {
-  number: "11",
+  number: "12",
   label: "Go to market",
   title: "Every world ships with a traffic engine",
   hubLabel: "The hub",
@@ -587,11 +677,11 @@ export const TRAFFIC = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 14 Keeping it alive                                                        */
+/* 13 Keeping it alive                                                      */
 /* -------------------------------------------------------------------------- */
 
 export const LIVE_OPS = {
-  number: "12",
+  number: "13",
   label: "Keeping it alive",
   title: "A world is a channel, not a campaign",
   body: [
@@ -611,11 +701,11 @@ export const LIVE_OPS = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 15 Investment                                                              */
+/* 14 Investment                                                            */
 /* -------------------------------------------------------------------------- */
 
 export const INVESTMENT = {
-  number: "13",
+  number: "14",
   label: "Investment",
   title: "Scoped to the brief",
   disclaimer:
@@ -655,11 +745,11 @@ export const INVESTMENT = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 16 Safe by design                                                          */
+/* 15 Safe by design                                                        */
 /* -------------------------------------------------------------------------- */
 
 export const SAFETY = {
-  number: "14",
+  number: "15",
   label: "Safe by design",
   title: "Brand safety and compliance built in",
   points: [
@@ -671,11 +761,11 @@ export const SAFETY = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 17 Next steps                                                              */
+/* 16 Next steps                                                            */
 /* -------------------------------------------------------------------------- */
 
 export const NEXT_STEPS = {
-  number: "15",
+  number: "16",
   label: "Next steps",
   title: "Let us build your world",
   steps: [

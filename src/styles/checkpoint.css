@@ -1496,6 +1496,112 @@
   margin-top: 20px;
 }
 
+/* ── REVENUE STREAMS ──────────────────────────────────────── */
+
+/*
+ * Five streams as cards rather than a long list, because a reader scanning
+ * for "can this pay for itself" wants to count the answers before reading
+ * any of them. Two columns at desktop, and the fifth card simply sits on the
+ * last row rather than being stretched to fill it: a card twice the width of
+ * its siblings would read as the most important one, which it is not.
+ */
+.cp-streams {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 900px) {
+  .cp-streams { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
+
+.cp-stream {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--cp-line);
+  border-radius: 16px;
+  background: var(--cp-ink);
+  padding: 28px;
+}
+
+@media (min-width: 768px) {
+  .cp-stream { padding: 36px; }
+}
+
+.cp-stream__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+
+.cp-stream__n { color: var(--cp-slate); }
+
+.cp-stream__name {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--cp-cream);
+}
+
+@media (min-width: 768px) {
+  .cp-stream__name { font-size: 26px; }
+}
+
+.cp-stream__body { margin: 16px 0 0; }
+
+.cp-stream__points {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--cp-line);
+}
+
+.cp-stream__points li {
+  position: relative;
+  padding: 14px 0 0 22px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--cp-stone);
+}
+
+/* A lime tick rule rather than a bullet glyph: it sits on the cap height at
+   any size, where a dot has to be nudged per font-size. */
+.cp-stream__points li::before {
+  content: '';
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 10px;
+  height: 1.5px;
+  background: var(--cp-lime);
+}
+
+/*
+ * The caveat is the one thing in this section a reader must not skim past,
+ * so it is the one thing that does not look like the rest of the card.
+ * `margin-top: auto` pins it to the bottom however long the points run, so
+ * in a two-column row it never floats mid-card against its neighbour.
+ */
+.cp-stream__caveat {
+  margin: 24px 0 0;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 107, 90, 0.35);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--cp-stone);
+}
+
+.cp-stream__caveat .cp-eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--cp-coral);
+}
+
 /* ── CHARTS ───────────────────────────────────────────────────────────── */
 
 .cp-donut { display: flex; flex-direction: column; align-items: center; gap: 32px; }
