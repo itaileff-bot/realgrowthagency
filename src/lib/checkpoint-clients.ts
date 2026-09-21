@@ -97,7 +97,7 @@ const RHAPSODY: CheckpointClient = {
   name: "Project Rhapsody",
   confidential: true,
   headline: "A world your audience chooses to spend time in",
-  lead: "Not an ad they scroll past, but a place they come back to: to build, to learn, to engage, to create. Bring an engineer's mindset and see what is possible. We can take you to space and show you limitless room to make things. Built and run by the studio behind a 41-million-visit world, with the traffic engine that fills it from day one.",
+  lead: "Not an ad they scroll past, but a place they come back to: to build, to learn, to engage, to create. Bring an engineer's mindset and see what is possible. We can take you to space and show you limitless room to make things.",
   summary:
     "A world your audience chooses to spend time in: built, run and filled by the studio behind a 41-million-visit Roblox world.",
   points: [
