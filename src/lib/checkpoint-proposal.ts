@@ -503,7 +503,7 @@ export const COLLAB = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 09 What we can build                                                     */
+/* 13 What we can build                                                     */
 /* -------------------------------------------------------------------------- */
 
 /*
@@ -520,7 +520,7 @@ export const COLLAB = {
  * them. No JavaScript is involved.
  */
 export const FORMATS = {
-  number: "09",
+  number: "13",
   label: "What we can build",
   title: "Your idea. A playable possibility.",
   lead: "Full Roblox experiences, branded worlds and special collaborations. We can help shape the right starting point.",
@@ -556,7 +556,7 @@ export const FORMATS = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 10 How a world earns                                                       */
+/* 09 How a world earns                                                       */
 /* -------------------------------------------------------------------------- */
 
 /**
@@ -577,7 +577,7 @@ export const FORMATS = {
  * than bending the general case.
  */
 export const REVENUE = {
-  number: "10",
+  number: "09",
   label: "How a world earns",
   title: "Five ways a world pays for itself",
   lead: "What turns the build from a marketing expense into a P&L line, in rough order of how well each suits a brand-owned world.",
@@ -658,11 +658,11 @@ export const PROCESS = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 12 Go to market                                                          */
+/* 10 Go to market                                                          */
 /* -------------------------------------------------------------------------- */
 
 export const TRAFFIC = {
-  number: "12",
+  number: "10",
   label: "Go to market",
   title: "Every world ships with a traffic engine",
   hubLabel: "The hub",
@@ -677,11 +677,11 @@ export const TRAFFIC = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 13 Keeping it alive                                                      */
+/* 12 Keeping it alive                                                      */
 /* -------------------------------------------------------------------------- */
 
 export const LIVE_OPS = {
-  number: "13",
+  number: "12",
   label: "Keeping it alive",
   title: "A world is a channel, not a campaign",
   body: [

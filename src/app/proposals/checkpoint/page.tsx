@@ -347,6 +347,7 @@ export default function CheckpointProposalPage() {
         <SourceNote source={CHANGE.source} />
       </Section>
 
+      {/* ------------------------------------------------------------------ */}
       {/* 05  Who we are                                        anchor: studio */}
       {/* ------------------------------------------------------------------ */}
       <Section id="studio" tone="raised">
@@ -560,7 +561,149 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 09  What we build                                      anchor: build */}
+      {/* 09  How a world earns                                               */}
+      {/* ------------------------------------------------------------------ */}
+      <Section tone="raised">
+        <SectionHeader
+          number={REVENUE.number}
+          label={REVENUE.label}
+          title={REVENUE.title}
+          lead={REVENUE.lead}
+        />
+
+        <ol className="cp-streams">
+          {REVENUE.streams.map((stream, i) => (
+            <li key={stream.name} className="cp-stream">
+              <div className="cp-stream__head">
+                <span className="cp-eyebrow cp-eyebrow--xs cp-stream__n">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="cp-display cp-stream__name">{stream.name}</h3>
+                <Tag>{stream.tag}</Tag>
+              </div>
+
+              <p className="cp-body cp-body--sm cp-stream__body">{stream.body}</p>
+
+              <ul className="cp-stream__points">
+                {stream.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+
+              {'caveat' in stream && stream.caveat && (
+                <p className="cp-stream__caveat">
+                  <span className="cp-eyebrow cp-eyebrow--xs">Worth knowing</span>
+                  {stream.caveat}
+                </p>
+              )}
+            </li>
+          ))}
+        </ol>
+
+        <SourceNote source={REVENUE.source} />
+        <SourceNote source={REVENUE.commerceSource} />
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 10  Go to market                                                    */}
+      {/* ------------------------------------------------------------------ */}
+      <Section>
+        <SectionHeader number={TRAFFIC.number} label={TRAFFIC.label} title={TRAFFIC.title} />
+
+        {/*
+          The deck drew this as a radial hub with five spokes, which is where
+          most of its misalignment lived: the spokes could not be kept at equal
+          length or angle, and the labels collided. The same idea reads better
+          as a hub card against a numbered list of inbound channels, and it
+          survives a 375px screen without redrawing.
+        */}
+        <div className="cp-split">
+          <div className="cp-split__third">
+            <div className="cp-hub cp-gridlines">
+              <Eyebrow tone="accent">{TRAFFIC.hubLabel}</Eyebrow>
+              <p className="cp-display cp-cream" style={{ marginTop: 16, fontSize: 30 }}>
+                {TRAFFIC.hubName}
+              </p>
+              <span aria-hidden="true" className="cp-hub__rule" />
+              <p className="cp-body cp-body--sm" style={{ marginTop: 24 }}>
+                Five inbound channels, live from day one and tuned every month.
+              </p>
+            </div>
+          </div>
+
+          <ol className="cp-split__twothirds">
+            {TRAFFIC.channels.map((channel, i) => (
+              <li key={channel} className="cp-channel">
+                <span className="cp-figure cp-channel__n">{String(i + 1).padStart(2, '0')}</span>
+                <p className="cp-body cp-body--sm cp-body--bright">{channel}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 11  How we work                                                     */}
+      {/* ------------------------------------------------------------------ */}
+      <Section tone="raised">
+        <SectionHeader number={PROCESS.number} label={PROCESS.label} title={PROCESS.title} />
+
+        <ol className="cp-steps">
+          <span aria-hidden="true" className="cp-steps__spine" />
+          {PROCESS.steps.map((step) => (
+            <li key={step.n} className="cp-steps__item">
+              <span className="cp-steps__dot cp-display">{step.n}</span>
+              <div className="cp-steps__body">
+                <p className="cp-eyebrow cp-eyebrow--xs">{step.when}</p>
+                <h3 className="cp-display cp-h3" style={{ marginTop: 8 }}>
+                  {step.name}
+                </h3>
+                <p className="cp-body cp-body--sm" style={{ marginTop: 8 }}>
+                  {step.body}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <p className="cp-display cp-lime" style={{ marginTop: 48, fontSize: 28 }}>
+          {PROCESS.kicker}
+        </p>
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 12  Keeping it alive                                                */}
+      {/* ------------------------------------------------------------------ */}
+      <Section tone="raised">
+        <SectionHeader number={LIVE_OPS.number} label={LIVE_OPS.label} title={LIVE_OPS.title} />
+
+        <div className="cp-split">
+          <div className="cp-split__half">
+            {LIVE_OPS.body.map((paragraph) => (
+              <p key={paragraph} className="cp-body">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <div className="cp-split__half">
+            <div className="cp-card cp-card--lg cp-card--flat">
+              <Eyebrow tone="accent">{LIVE_OPS.reportHeading}</Eyebrow>
+              <ul className="cp-metrics">
+                {LIVE_OPS.metrics.map((metric) => (
+                  <li key={metric}>
+                    <span aria-hidden="true" className="cp-dot" />
+                    {metric}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 13  What we build                                      anchor: build */}
       {/* ------------------------------------------------------------------ */}
       <Section id="build">
         <div className="cp-build">
@@ -609,148 +752,6 @@ export default function CheckpointProposalPage() {
               <li key={addOn}>{addOn}</li>
             ))}
           </ul>
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 10  How a world earns                                               */}
-      {/* ------------------------------------------------------------------ */}
-      <Section tone="raised">
-        <SectionHeader
-          number={REVENUE.number}
-          label={REVENUE.label}
-          title={REVENUE.title}
-          lead={REVENUE.lead}
-        />
-
-        <ol className="cp-streams">
-          {REVENUE.streams.map((stream, i) => (
-            <li key={stream.name} className="cp-stream">
-              <div className="cp-stream__head">
-                <span className="cp-eyebrow cp-eyebrow--xs cp-stream__n">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <h3 className="cp-display cp-stream__name">{stream.name}</h3>
-                <Tag>{stream.tag}</Tag>
-              </div>
-
-              <p className="cp-body cp-body--sm cp-stream__body">{stream.body}</p>
-
-              <ul className="cp-stream__points">
-                {stream.points.map((point) => (
-                  <li key={point}>{point}</li>
-                ))}
-              </ul>
-
-              {'caveat' in stream && stream.caveat && (
-                <p className="cp-stream__caveat">
-                  <span className="cp-eyebrow cp-eyebrow--xs">Worth knowing</span>
-                  {stream.caveat}
-                </p>
-              )}
-            </li>
-          ))}
-        </ol>
-
-        <SourceNote source={REVENUE.source} />
-        <SourceNote source={REVENUE.commerceSource} />
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 11  How we work                                                     */}
-      {/* ------------------------------------------------------------------ */}
-      <Section tone="raised">
-        <SectionHeader number={PROCESS.number} label={PROCESS.label} title={PROCESS.title} />
-
-        <ol className="cp-steps">
-          <span aria-hidden="true" className="cp-steps__spine" />
-          {PROCESS.steps.map((step) => (
-            <li key={step.n} className="cp-steps__item">
-              <span className="cp-steps__dot cp-display">{step.n}</span>
-              <div className="cp-steps__body">
-                <p className="cp-eyebrow cp-eyebrow--xs">{step.when}</p>
-                <h3 className="cp-display cp-h3" style={{ marginTop: 8 }}>
-                  {step.name}
-                </h3>
-                <p className="cp-body cp-body--sm" style={{ marginTop: 8 }}>
-                  {step.body}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-
-        <p className="cp-display cp-lime" style={{ marginTop: 48, fontSize: 28 }}>
-          {PROCESS.kicker}
-        </p>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 12  Go to market                                                    */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <SectionHeader number={TRAFFIC.number} label={TRAFFIC.label} title={TRAFFIC.title} />
-
-        {/*
-          The deck drew this as a radial hub with five spokes, which is where
-          most of its misalignment lived: the spokes could not be kept at equal
-          length or angle, and the labels collided. The same idea reads better
-          as a hub card against a numbered list of inbound channels, and it
-          survives a 375px screen without redrawing.
-        */}
-        <div className="cp-split">
-          <div className="cp-split__third">
-            <div className="cp-hub cp-gridlines">
-              <Eyebrow tone="accent">{TRAFFIC.hubLabel}</Eyebrow>
-              <p className="cp-display cp-cream" style={{ marginTop: 16, fontSize: 30 }}>
-                {TRAFFIC.hubName}
-              </p>
-              <span aria-hidden="true" className="cp-hub__rule" />
-              <p className="cp-body cp-body--sm" style={{ marginTop: 24 }}>
-                Five inbound channels, live from day one and tuned every month.
-              </p>
-            </div>
-          </div>
-
-          <ol className="cp-split__twothirds">
-            {TRAFFIC.channels.map((channel, i) => (
-              <li key={channel} className="cp-channel">
-                <span className="cp-figure cp-channel__n">{String(i + 1).padStart(2, '0')}</span>
-                <p className="cp-body cp-body--sm cp-body--bright">{channel}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 13  Keeping it alive                                                */}
-      {/* ------------------------------------------------------------------ */}
-      <Section tone="raised">
-        <SectionHeader number={LIVE_OPS.number} label={LIVE_OPS.label} title={LIVE_OPS.title} />
-
-        <div className="cp-split">
-          <div className="cp-split__half">
-            {LIVE_OPS.body.map((paragraph) => (
-              <p key={paragraph} className="cp-body">
-                {paragraph}
-              </p>
-            ))}
-          </div>
-
-          <div className="cp-split__half">
-            <div className="cp-card cp-card--lg cp-card--flat">
-              <Eyebrow tone="accent">{LIVE_OPS.reportHeading}</Eyebrow>
-              <ul className="cp-metrics">
-                {LIVE_OPS.metrics.map((metric) => (
-                  <li key={metric}>
-                    <span aria-hidden="true" className="cp-dot" />
-                    {metric}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </Section>
 
