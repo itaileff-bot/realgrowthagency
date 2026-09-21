@@ -508,7 +508,7 @@ export const COLLAB = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 13 What we can build                                                     */
+/* 14 What we can build                                                     */
 /* -------------------------------------------------------------------------- */
 
 /*
@@ -525,7 +525,7 @@ export const COLLAB = {
  * them. No JavaScript is involved.
  */
 export const FORMATS = {
-  number: "13",
+  number: "14",
   label: "What we can build",
   title: "Your idea. A playable possibility.",
   lead: "Full Roblox experiences, branded worlds and special collaborations. We can help shape the right starting point.",
@@ -750,11 +750,11 @@ export const INVESTMENT = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 14 Safe by design                                                        */
+/* 13 Safe by design                                                        */
 /* -------------------------------------------------------------------------- */
 
 export const SAFETY = {
-  number: "14",
+  number: "13",
   label: "Safe by design",
   title: "Brand safety and compliance built in",
   points: [
