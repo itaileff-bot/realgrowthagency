@@ -28,7 +28,6 @@ import {
   FORMATS,
   HERO,
   HERO_MEDIA,
-  IDENTITY,
   INVESTMENT,
   LIVE_OPS,
   NEXT_STEPS,
@@ -183,9 +182,15 @@ export default function CheckpointProposalPage() {
       </section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 02  The shift                                     anchor: opportunity */}
+      {/* 02  The opportunity                              anchor: opportunity */}
       {/* ------------------------------------------------------------------ */}
-      <Section id="opportunity" tone="raised">
+      {/*
+        The shift and the platform's size were two sections making one
+        argument, so they are one section. `wide` drops the centre measure:
+        five figures and a comparison chart in a 1152px column is a squeeze,
+        and this is the band that has to land hardest.
+      */}
+      <Section id="opportunity" tone="raised" wide>
         <SectionHeader number={SHIFT.number} label={SHIFT.label} title={SHIFT.title} />
 
         <div className="cp-split">
@@ -210,9 +215,9 @@ export default function CheckpointProposalPage() {
               </p>
               <div
                 style={{
-                  marginTop: 32,
+                  marginTop: 40,
                   borderTop: '1px solid var(--cp-line)',
-                  paddingTop: 32,
+                  paddingTop: 40,
                 }}
               >
                 <AttentionBars rows={SHIFT.comparison} />
@@ -221,14 +226,10 @@ export default function CheckpointProposalPage() {
           </div>
         </div>
 
-        <SourceNote source={SHIFT.source} />
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 03  Roblox by the numbers                                           */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <SectionHeader number={PLATFORM.number} label={PLATFORM.label} title={PLATFORM.title} />
+        <div className="cp-subhead">
+          <Eyebrow tone="accent">{PLATFORM.label}</Eyebrow>
+          <h3 className="cp-display cp-h3">{PLATFORM.title}</h3>
+        </div>
 
         <div className="cp-grid cp-grid--5up">
           {PLATFORM_STATS.map((stat) => (
@@ -242,13 +243,14 @@ export default function CheckpointProposalPage() {
           ))}
         </div>
 
+        <SourceNote source={SHIFT.source} />
         <SourceNote source={PLATFORM.source} />
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 04  Who is there                                                    */}
+      {/* 03  Who is there                                                    */}
       {/* ------------------------------------------------------------------ */}
-      <Section tone="raised">
+      <Section>
         <SectionHeader number={AUDIENCE.number} label={AUDIENCE.label} title={AUDIENCE.title} />
 
         <div className="cp-grid cp-grid--2md cp-grid--gap-lg">
@@ -277,23 +279,13 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 05  Identity drives purchase                                        */}
+      {/* 04  What has changed                                                */}
       {/* ------------------------------------------------------------------ */}
-      <Section>
-        <SectionHeader number={IDENTITY.number} label={IDENTITY.label} title={IDENTITY.title} />
-
-        <div className="cp-grid cp-grid--4">
-          {IDENTITY.stats.map((stat) => (
-            <StatCard key={stat.value} value={stat.value} label={stat.label} accent="lime" />
-          ))}
-        </div>
-
-        <SourceNote source={IDENTITY.source} />
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 06  Brands already winning                                          */}
-      {/* ------------------------------------------------------------------ */}
+      {/*
+        The proof and the lesson drawn from it, together. Brands are winning
+        here, and the second half says what separates the ones that do; split
+        across two sections a reader could take the first and stop.
+      */}
       <Section tone="raised">
         <SectionHeader number={PROOF.number} label={PROOF.label} title={PROOF.title} />
 
@@ -318,14 +310,10 @@ export default function CheckpointProposalPage() {
           </p>
         </div>
 
-        <SourceNote source={PROOF.source} />
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 07  What has changed                                                */}
-      {/* ------------------------------------------------------------------ */}
-      <Section>
-        <SectionHeader number={CHANGE.number} label={CHANGE.label} title={CHANGE.title} />
+        <div className="cp-subhead">
+          <Eyebrow tone="accent">{CHANGE.label}</Eyebrow>
+          <h3 className="cp-display cp-h3">{CHANGE.title}</h3>
+        </div>
 
         <div className="cp-grid cp-grid--2md cp-grid--gap-lg">
           {CHANGE.columns.map((column) => {
@@ -354,11 +342,11 @@ export default function CheckpointProposalPage() {
           {CHANGE.kicker}
         </p>
 
+        <SourceNote source={PROOF.source} />
         <SourceNote source={CHANGE.source} />
       </Section>
 
-      {/* ------------------------------------------------------------------ */}
-      {/* 08  Who we are                                        anchor: studio */}
+      {/* 05  Who we are                                        anchor: studio */}
       {/* ------------------------------------------------------------------ */}
       <Section id="studio" tone="raised">
         <SectionHeader number={TEAM.number} label={TEAM.label} title={TEAM.title} />
@@ -388,7 +376,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 09  Showreel                                                        */}
+      {/* 06  Showreel                                                        */}
       {/* ------------------------------------------------------------------ */}
       <Section id="reel" tone="raised">
         <div className="cp-reel__head">
@@ -410,7 +398,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 10  Boho Salon                                          anchor: work */}
+      {/* 07  Boho Salon                                          anchor: work */}
       {/* ------------------------------------------------------------------ */}
       <Section id="work">
         <div className="cp-section__head">
@@ -517,7 +505,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 10  Lil Pump collaboration                                          */}
+      {/* 08  Lil Pump collaboration                                          */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <div className="cp-section__head">
@@ -571,7 +559,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 11  What we build                                      anchor: build */}
+      {/* 09  What we build                                      anchor: build */}
       {/* ------------------------------------------------------------------ */}
       <Section id="build">
         <div className="cp-build">
@@ -624,7 +612,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 12  How we work                                                     */}
+      {/* 10  How we work                                                     */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <SectionHeader number={PROCESS.number} label={PROCESS.label} title={PROCESS.title} />
@@ -653,7 +641,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 13  Go to market                                                    */}
+      {/* 11  Go to market                                                    */}
       {/* ------------------------------------------------------------------ */}
       <Section>
         <SectionHeader number={TRAFFIC.number} label={TRAFFIC.label} title={TRAFFIC.title} />
@@ -691,7 +679,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 14  Keeping it alive                                                */}
+      {/* 12  Keeping it alive                                                */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <SectionHeader number={LIVE_OPS.number} label={LIVE_OPS.label} title={LIVE_OPS.title} />
@@ -722,7 +710,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 15  Investment                                    anchor: investment */}
+      {/* 13  Investment                                    anchor: investment */}
       {/* ------------------------------------------------------------------ */}
       <Section id="investment">
         <SectionHeader
@@ -787,7 +775,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 16  Safe by design                                                  */}
+      {/* 14  Safe by design                                                  */}
       {/* ------------------------------------------------------------------ */}
       <Section tone="raised">
         <SectionHeader number={SAFETY.number} label={SAFETY.label} title={SAFETY.title} />
@@ -817,7 +805,7 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 17  Next steps                                          anchor: next */}
+      {/* 15  Next steps                                          anchor: next */}
       {/* ------------------------------------------------------------------ */}
       <Section id="next">
         <div className="cp-split">

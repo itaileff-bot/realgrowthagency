@@ -235,6 +235,29 @@
   padding-inline: var(--cp-gutter);
 }
 
+/*
+ * The full-page band. No measure at all, and a gutter that opens up with the
+ * viewport so the content is not welded to the window edge on a wide screen.
+ * Prose inside keeps a measure of its own, below: a 55px headline running the
+ * width of a 2560px display is not a headline, it is a ticker.
+ */
+.cp-container--wide {
+  max-width: none;
+  padding-inline: max(var(--cp-gutter), 4vw);
+}
+
+.cp-container--wide .cp-section__head,
+.cp-container--wide .cp-subhead { max-width: var(--cp-measure); }
+
+/* A second heading inside a section, where two former sections were merged. */
+.cp-subhead {
+  margin-top: 72px;
+  padding-top: 40px;
+  border-top: 1px solid var(--cp-line);
+}
+
+.cp-subhead .cp-h3 { margin: 12px 0 32px; }
+
 .cp-section {
   border-top: 1px solid var(--cp-line);
   padding-block: var(--cp-rhythm);
@@ -342,6 +365,17 @@
   .cp-grid--5up { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .cp-grid--5up > :nth-child(-n + 2) { grid-column: span 3; }
   .cp-grid--5up > :nth-child(n + 3) { grid-column: span 2; }
+}
+
+/*
+ * Two rows of 2 and 3 is the compromise five cards make inside the centre
+ * measure. In a full-page band there is room for all five on one line, which
+ * is the reason for going full-page in the first place: one row of five reads
+ * as a single fact about the platform, two rows read as two lists.
+ */
+@media (min-width: 1400px) {
+  .cp-container--wide .cp-grid--5up { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .cp-container--wide .cp-grid--5up > * { grid-column: auto; }
 }
 
 .cp-split { display: grid; gap: 40px; }

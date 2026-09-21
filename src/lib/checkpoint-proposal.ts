@@ -74,11 +74,6 @@ export const SOURCES = {
     full: "Roblox Corporation, Q2 2026 results and Q4 2025 shareholder letter.",
     verified: true,
   },
-  robloxGenZ: {
-    short: "Roblox Gen Z research",
-    full: "Roblox, Gen Z digital expression and fashion research.",
-    verified: true,
-  },
   platformData: {
     short: "Roblox platform data",
     full: "Roblox platform engagement and demographic disclosures. Specific references available on request.",
@@ -252,7 +247,6 @@ export const PLATFORM_STATS = [
 ] as const;
 
 export const PLATFORM = {
-  number: "03",
   label: "Roblox by the numbers",
   title: "One of the largest daily audiences in entertainment",
   source: "robloxResults" as SourceKey,
@@ -263,7 +257,7 @@ export const PLATFORM = {
 /* -------------------------------------------------------------------------- */
 
 export const AUDIENCE = {
-  number: "04",
+  number: "03",
   label: "Who is there",
   title: "Older, more global and better verified than you think",
   ageCaption: "Age, verified by Roblox age checks",
@@ -289,28 +283,11 @@ export const AUDIENCE = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 05 Identity drives purchase                                                */
-/* -------------------------------------------------------------------------- */
-
-export const IDENTITY = {
-  number: "05",
-  label: "Identity drives purchase",
-  title: "What they wear on their avatar, they want in real life",
-  stats: [
-    { value: "84%", label: "say their avatar influences their real-world style" },
-    { value: "88%", label: "use digital fashion to preview before buying the physical product" },
-    { value: "64%", label: "are more likely to consider a brand in store after wearing it virtually" },
-    { value: "60%", label: "prioritise brands that show up on their avatar" },
-  ],
-  source: "robloxGenZ" as SourceKey,
-} as const;
-
-/* -------------------------------------------------------------------------- */
 /* 06 Brands already winning                                                  */
 /* -------------------------------------------------------------------------- */
 
 export const PROOF = {
-  number: "06",
+  number: "04",
   label: "Brands already winning",
   title: "From fashion to fast food, the playbook is proven",
   cases: [
@@ -336,7 +313,6 @@ export const PROOF = {
 /* -------------------------------------------------------------------------- */
 
 export const CHANGE = {
-  number: "07",
   label: "What has changed",
   title: "Building a world is not enough. It needs an audience plan.",
   columns: [
@@ -364,7 +340,7 @@ export const CHANGE = {
 /* -------------------------------------------------------------------------- */
 
 export const TEAM = {
-  number: "08",
+  number: "05",
   label: "Who we are",
   title: "Brand builders and world builders under one roof",
   kicker:
@@ -408,7 +384,7 @@ export const TEAM = {
  * on a page that also carries a hero loop.
  */
 export const REEL = {
-  number: "09",
+  number: "06",
   label: "Our work in 60 seconds",
   title: "The wider picture.",
   lead: "Worlds, interfaces and gameplay. See them in motion.",
@@ -430,7 +406,7 @@ export const REEL = {
 /* -------------------------------------------------------------------------- */
 
 export const BOHO = {
-  number: "10",
+  number: "07",
   label: "Our worlds",
   title: "Boho Salon",
   subtitle: "Checkpoint original, beauty and fashion",
@@ -495,7 +471,7 @@ export const BOHO = {
 /* -------------------------------------------------------------------------- */
 
 export const COLLAB = {
-  number: "11",
+  number: "08",
   label: "Our worlds",
   title: "Custom assets for a creator collaboration",
   tag: "Creator partnership",
@@ -538,7 +514,7 @@ export const COLLAB = {
  * them. No JavaScript is involved.
  */
 export const FORMATS = {
-  number: "12",
+  number: "09",
   label: "What we can build",
   title: "Your idea. A playable possibility.",
   lead: "Full Roblox experiences, branded worlds and special collaborations. We can help shape the right starting point.",
@@ -578,7 +554,7 @@ export const FORMATS = {
 /* -------------------------------------------------------------------------- */
 
 export const PROCESS = {
-  number: "13",
+  number: "10",
   label: "How we work",
   title: "From brief to live world in 8 to 16 weeks",
   kicker: "Launch is a beginning, not the end.",
@@ -596,7 +572,7 @@ export const PROCESS = {
 /* -------------------------------------------------------------------------- */
 
 export const TRAFFIC = {
-  number: "14",
+  number: "11",
   label: "Go to market",
   title: "Every world ships with a traffic engine",
   hubLabel: "The hub",
@@ -615,7 +591,7 @@ export const TRAFFIC = {
 /* -------------------------------------------------------------------------- */
 
 export const LIVE_OPS = {
-  number: "15",
+  number: "12",
   label: "Keeping it alive",
   title: "A world is a channel, not a campaign",
   body: [
@@ -639,7 +615,7 @@ export const LIVE_OPS = {
 /* -------------------------------------------------------------------------- */
 
 export const INVESTMENT = {
-  number: "16",
+  number: "13",
   label: "Investment",
   title: "Scoped to the brief",
   disclaimer:
@@ -683,7 +659,7 @@ export const INVESTMENT = {
 /* -------------------------------------------------------------------------- */
 
 export const SAFETY = {
-  number: "17",
+  number: "14",
   label: "Safe by design",
   title: "Brand safety and compliance built in",
   points: [
@@ -699,7 +675,7 @@ export const SAFETY = {
 /* -------------------------------------------------------------------------- */
 
 export const NEXT_STEPS = {
-  number: "18",
+  number: "15",
   label: "Next steps",
   title: "Let us build your world",
   steps: [

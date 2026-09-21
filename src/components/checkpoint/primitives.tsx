@@ -34,12 +34,19 @@ export function Section({
   children,
   tone = 'base',
   tight = false,
+  wide = false,
 }: {
   id?: string;
   children: ReactNode;
   /** `raised` lifts the band off the ink ground to separate adjacent sections. */
   tone?: 'base' | 'raised';
   tight?: boolean;
+  /**
+   * Drops the 1152px measure and lets the band use the whole page, for a
+   * section carrying enough figures that the centre column would crush them.
+   * Prose inside still gets a measure of its own; only the data spreads.
+   */
+  wide?: boolean;
 }) {
   return (
     <section
@@ -48,7 +55,7 @@ export function Section({
         tight ? ' cp-section--tight' : ''
       }`}
     >
-      <div className="cp-container">{children}</div>
+      <div className={`cp-container${wide ? ' cp-container--wide' : ''}`}>{children}</div>
     </section>
   );
 }
