@@ -701,11 +701,11 @@ export const LIVE_OPS = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 14 Investment                                                            */
+/* 15 Investment                                                            */
 /* -------------------------------------------------------------------------- */
 
 export const INVESTMENT = {
-  number: "14",
+  number: "15",
   label: "Investment",
   title: "Scoped to the brief",
   disclaimer:
@@ -745,11 +745,11 @@ export const INVESTMENT = {
 } as const;
 
 /* -------------------------------------------------------------------------- */
-/* 15 Safe by design                                                        */
+/* 14 Safe by design                                                        */
 /* -------------------------------------------------------------------------- */
 
 export const SAFETY = {
-  number: "15",
+  number: "14",
   label: "Safe by design",
   title: "Brand safety and compliance built in",
   points: [

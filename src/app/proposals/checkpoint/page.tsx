@@ -756,7 +756,37 @@ export default function CheckpointProposalPage() {
       </Section>
 
       {/* ------------------------------------------------------------------ */}
-      {/* 14  Investment                                    anchor: investment */}
+      {/* 14  Safe by design                                                  */}
+      {/* ------------------------------------------------------------------ */}
+      <Section tone="raised">
+        <SectionHeader number={SAFETY.number} label={SAFETY.label} title={SAFETY.title} />
+
+        <ul className="cp-grid cp-grid--3 cp-grid--gap-lg">
+          {SAFETY.points.map((point) => (
+            <li key={point} className="cp-card cp-card--flat">
+              <span aria-hidden="true" className="cp-check">
+                <svg viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M4 10.5 8 14.5 16 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <p className="cp-body cp-body--sm cp-body--bright" style={{ marginTop: 20 }}>
+                {point}
+              </p>
+            </li>
+          ))}
+        </ul>
+
+        <SourceNote source={SAFETY.source} />
+      </Section>
+
+      {/* ------------------------------------------------------------------ */}
+      {/* 15  Investment                                    anchor: investment */}
       {/* ------------------------------------------------------------------ */}
       <Section id="investment">
         <SectionHeader
@@ -818,36 +848,6 @@ export default function CheckpointProposalPage() {
             </div>
           ))}
         </div>
-      </Section>
-
-      {/* ------------------------------------------------------------------ */}
-      {/* 15  Safe by design                                                  */}
-      {/* ------------------------------------------------------------------ */}
-      <Section tone="raised">
-        <SectionHeader number={SAFETY.number} label={SAFETY.label} title={SAFETY.title} />
-
-        <ul className="cp-grid cp-grid--3 cp-grid--gap-lg">
-          {SAFETY.points.map((point) => (
-            <li key={point} className="cp-card cp-card--flat">
-              <span aria-hidden="true" className="cp-check">
-                <svg viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M4 10.5 8 14.5 16 6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-              <p className="cp-body cp-body--sm cp-body--bright" style={{ marginTop: 20 }}>
-                {point}
-              </p>
-            </li>
-          ))}
-        </ul>
-
-        <SourceNote source={SAFETY.source} />
       </Section>
 
       {/* ------------------------------------------------------------------ */}
