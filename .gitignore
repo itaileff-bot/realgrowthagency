@@ -19,3 +19,7 @@ tsconfig.tsbuildinfo
 
 # OS
 .DS_Store
+
+# Compound Engineering local override and scratch
+.compound-engineering/*.local.yaml
+.context/compound-engineering/
