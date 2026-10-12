@@ -21,6 +21,16 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // Short, shareable link for the Project Rhapsody world proposal.
+        source: '/ProjectRhapsodyWorld',
+        destination: '/proposals/checkpoint/rhapsody/world',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

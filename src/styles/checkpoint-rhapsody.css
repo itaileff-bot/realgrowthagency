@@ -1,0 +1,192 @@
+/*
+ * Additions for the Project Rhapsody world proposal.
+ *
+ * checkpoint.css is the section's design system and is left untouched; this
+ * file only adds what the standing proposal never needed (data tables and a
+ * bulleted list) and borrows every colour and measure from its custom
+ * properties, so the two cannot drift.
+ *
+ * Every rule is nested under `.cp-root`, the same contract checkpoint.css
+ * keeps with globals.css.
+ */
+
+/* ── Data tables ─────────────────────────────────────────────────────── */
+
+.cp-root .cp-rhp-tablewrap {
+  overflow-x: auto;
+  margin-top: 24px;
+  border: 1px solid var(--cp-line);
+  border-radius: 12px;
+  background: var(--cp-ink-deep);
+  -webkit-overflow-scrolling: touch;
+}
+
+.cp-root .cp-rhp-tablewrap:focus-visible {
+  outline: 2px solid var(--cp-lime);
+  outline-offset: 2px;
+}
+
+.cp-root .cp-rhp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 17px;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.cp-root .cp-rhp-table th,
+.cp-root .cp-rhp-table td {
+  padding: 14px 18px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--cp-line);
+  font-variant-numeric: tabular-nums;
+}
+
+.cp-root .cp-rhp-table thead th {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cp-slate);
+  background: var(--cp-ink-raise);
+  white-space: nowrap;
+}
+
+.cp-root .cp-rhp-table tbody th {
+  font-weight: 600;
+  color: var(--cp-cream);
+}
+
+.cp-root .cp-rhp-table tbody td {
+  color: var(--cp-stone);
+}
+
+.cp-root .cp-rhp-table tbody tr:last-child th,
+.cp-root .cp-rhp-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cp-root .cp-rhp-table__emphasis th,
+.cp-root .cp-rhp-table__emphasis td {
+  color: var(--cp-lime);
+  background: rgba(200, 255, 46, 0.06);
+  font-weight: 600;
+}
+
+/* ── Bulleted list ───────────────────────────────────────────────────── */
+
+.cp-root .cp-rhp-list {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cp-root .cp-rhp-list li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--cp-stone);
+}
+
+.cp-root .cp-rhp-list li + li {
+  margin-top: 12px;
+}
+
+.cp-root .cp-rhp-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--cp-lime);
+}
+
+/* ── Phase block ─────────────────────────────────────────────────────── */
+
+.cp-root .cp-rhp-phase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.cp-root .cp-rhp-phase__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 24px;
+}
+
+.cp-root .cp-rhp-phase__meta .cp-tag {
+  max-width: 100%;
+  white-space: normal;
+}
+
+.cp-root .cp-rhp-phase__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-top: 8px;
+}
+
+.cp-root .cp-rhp-phase__reviews {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--cp-line);
+  font-size: 18px;
+  color: var(--cp-slate);
+}
+
+@media (min-width: 900px) {
+  .cp-root .cp-rhp-phase {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 48px;
+  }
+}
+
+.cp-root .cp-rhp-streams {
+  margin-top: 24px;
+}
+
+.cp-root .cp-rhp-streams .cp-numbered + .cp-numbered {
+  margin-top: 20px;
+}
+
+.cp-root .cp-rhp-subtitle {
+  margin-top: 56px;
+}
+
+.cp-root .cp-rhp-note {
+  margin-top: 16px;
+  font-size: 16px;
+  color: var(--cp-slate);
+}
+
+.cp-root .cp-rhp-takeaway {
+  margin-top: 24px;
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--cp-lime);
+}
+
+@media (max-width: 480px) {
+  .cp-root .cp-rhp-takeaway {
+    font-size: 21px;
+  }
+
+  .cp-root .cp-rhp-table th,
+  .cp-root .cp-rhp-table td {
+    padding: 12px 14px;
+  }
+}
+
+/* The base `.cp-root a { color: inherit }` outranks `.cp-btn--primary`, which
+   leaves cream text on the lime button. Dark ink is the intended, readable
+   pairing; scoped to this page's buttons so shared styles stay untouched. */
+.cp-root a.cp-rhp-btn {
+  color: var(--cp-ink);
+}
