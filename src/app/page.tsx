@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { AdminLoginButton } from '@/components/AdminLoginButton';
 
 export default function HomePage() {
   useEffect(() => {
@@ -779,6 +780,7 @@ export default function HomePage() {
               <a href="/blog">Blog</a>
               <a href="/blog">Case Studies</a>
               <a href="/#contact">Free SEO Audit</a>
+              <AdminLoginButton />
             </div>
             <div className="footer-col">
               <h5>Brand Refinery</h5>

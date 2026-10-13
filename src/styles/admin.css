@@ -1,0 +1,59 @@
+/* Owner admin area only. Uses the site's colour tokens from globals.css. Mobile first. */
+.adm {
+  min-height: 100vh;
+  background: var(--light);
+  padding: 32px 16px 64px;
+  color: var(--dark);
+}
+.adm-wrap { max-width: 880px; margin: 0 auto; }
+.adm-top {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: space-between;
+  margin-bottom: 24px;
+}
+.adm-brand { font-family: var(--font-space); font-weight: 700; font-size: 1.15rem; }
+.adm-brand span { background: var(--grad1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.adm-eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--primary); margin-bottom: 6px; }
+.adm h1 { font-family: var(--font-space); font-size: 1.75rem; line-height: 1.2; margin-bottom: 10px; }
+.adm h2 { font-family: var(--font-space); font-size: 1.3rem; margin: 8px 0 10px; }
+.adm h3 { font-family: var(--font-space); font-size: 1.05rem; margin: 22px 0 8px; }
+.adm p { line-height: 1.6; margin-bottom: 10px; }
+.adm-card {
+  background: #fff; border: 1px solid rgba(108,60,233,.12); border-radius: 16px;
+  padding: 20px; box-shadow: 0 6px 24px rgba(108,60,233,.06);
+  min-width: 0; overflow-wrap: anywhere;
+}
+.adm-card + .adm-card { margin-top: 16px; }
+.adm-note { font-size: .9rem; color: #555; background: rgba(0,212,170,.08); border-left: 3px solid var(--accent); padding: 10px 12px; border-radius: 8px; }
+.adm-form { display: grid; gap: 14px; border: 0; padding: 0; min-width: 0; }
+.adm-form label { display: grid; gap: 6px; font-weight: 600; font-size: .92rem; }
+.adm-form input, .adm-form textarea, .adm-form select, .adm-select {
+  width: 100%; font: inherit; font-weight: 400; font-size: 16px; /* 16px stops iOS zoom */
+  padding: 11px 12px; border: 1px solid #d9d5ec; border-radius: 10px; background: #fff; color: var(--dark);
+}
+.adm-form input:focus, .adm-form textarea:focus, .adm-form select:focus, .adm-select:focus {
+  outline: 2px solid var(--primary); outline-offset: 1px; border-color: transparent;
+}
+.adm-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 20px; border: 0; border-radius: 999px; cursor: pointer;
+  font: inherit; font-weight: 600; color: #fff; background: var(--primary); text-align: center;
+}
+.adm-btn:hover { filter: brightness(1.08); }
+.adm-btn:disabled { opacity: .6; cursor: not-allowed; }
+.adm-btn-ghost { background: transparent; color: var(--primary); border: 1.5px solid var(--primary); }
+.adm-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0; }
+.adm-alert { color: #b42318; background: #fef3f2; padding: 10px 12px; border-radius: 8px; }
+.adm-ok { color: #05603a; background: #ecfdf3; padding: 10px 12px; border-radius: 8px; }
+.adm details { border: 1px solid #ece9f8; border-radius: 10px; padding: 10px 12px; margin-top: 10px; }
+.adm summary { cursor: pointer; font-weight: 600; }
+.adm details p { white-space: pre-wrap; margin-top: 8px; }
+.adm ul { padding-left: 20px; line-height: 1.6; }
+.adm ul a { color: var(--primary); text-decoration: underline; }
+.adm-login { max-width: 420px; margin: 8vh auto 0; }
+
+@media (min-width: 768px) {
+  .adm { padding: 48px 24px 80px; }
+  .adm h1 { font-size: 2.1rem; }
+  .adm-card { padding: 28px; }
+}

@@ -44,6 +44,9 @@ const AI_CRAWLERS = [
 ];
 
 const PROPOSALS_PATH = '/proposals/';
+// Owner admin pages serve noindex; API routes are never content.
+const ADMIN_PATH = '/admin/';
+const API_PATH = '/api/';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -51,11 +54,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: [API_PATH],
       },
       {
         userAgent: AI_CRAWLERS,
         allow: '/',
-        disallow: [PROPOSALS_PATH],
+        disallow: [PROPOSALS_PATH, ADMIN_PATH, API_PATH],
       },
     ],
     sitemap: 'https://www.realgrowthagency.com/sitemap.xml',
