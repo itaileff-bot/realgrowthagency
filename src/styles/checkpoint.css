@@ -825,13 +825,13 @@
  * figure at 375px and knocked the third stat off the row's baseline.
  */
 .cp-hero__statvalue {
-  font-size: 33px;
+  font-size: 35px;
   color: var(--cp-lime);
   white-space: nowrap;
 }
 
 @media (min-width: 640px) {
-  .cp-hero__statvalue { font-size: 45px; }
+  .cp-hero__statvalue { font-size: 54px; }
 }
 
 .cp-hero__statlabel {
