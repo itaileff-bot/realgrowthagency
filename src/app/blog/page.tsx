@@ -6,11 +6,22 @@ export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Practical guides on SEO, branding, web development, and digital marketing for startups and growing businesses.',
+  alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Blog | Real Growth Agency',
     description:
       'Practical guides on SEO, branding, web development, and digital marketing for startups and growing businesses.',
     url: 'https://www.realgrowthagency.com/blog',
+    siteName: 'Real Growth Agency',
+    type: 'website',
+    images: ['/opengraph-image'],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog | Real Growth Agency',
+    description:
+      'Practical guides on SEO, branding, web development, and digital marketing for startups and growing businesses.',
+    images: ['/twitter-image'],
   },
 };
 
