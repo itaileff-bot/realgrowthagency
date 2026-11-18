@@ -324,6 +324,55 @@ export default function HomeClient() {
                 </p>
               </div>
             </a>
+            <a
+              href="https://www.theskincarecompany-usa.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-card"
+            >
+              <div className="portfolio-thumb" style={{ padding: 0 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="rga-fill"
+                  src="https://theskincarecompany-usa.com/images/products/peptide-lifestyle.webp"
+                  alt="The Skincare Company"
+                />
+              </div>
+              <div className="portfolio-overlay">
+                <span className="tag">Brand + Web</span>
+                <h4>The Skincare Company</h4>
+                <p>
+                  Australian peptide skincare: US launch site and
+                  direct-to-consumer build
+                </p>
+              </div>
+            </a>
+            <a
+              href="https://www.thethirdspaceatlanta.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="portfolio-card"
+            >
+              <div
+                className="portfolio-thumb"
+                style={{ background: '#0a0a0a' }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  className="rga-logo"
+                  src="https://www.thethirdspaceatlanta.com/assets/images/logo-third-space.png"
+                  alt="The Third Space"
+                />
+              </div>
+              <div className="portfolio-overlay">
+                <span className="tag">Brand + Web</span>
+                <h4>The Third Space</h4>
+                <p>
+                  Chef-led culinary event space in Atlanta: website, booking
+                  flow and brand story
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
