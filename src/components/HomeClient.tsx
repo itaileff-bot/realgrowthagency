@@ -362,7 +362,7 @@ export default function HomeClient() {
                   className="rga-logo"
                   src="https://www.thethirdspaceatlanta.com/assets/images/logo-third-space.png"
                   alt="The Third Space"
-                  style={{ filter: 'brightness(1.8)' }}
+                  style={{ filter: 'brightness(0) invert(1)' }}
                 />
               </div>
               <div className="portfolio-overlay">
