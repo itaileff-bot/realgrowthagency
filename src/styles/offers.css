@@ -1,0 +1,38 @@
+/* Free manual and website training pages. Mobile first: base rules target 375px. */
+.offer-hero { padding: 120px 0 48px; background: linear-gradient(160deg, #f8f7ff 0%, #fff 40%, #f0faf7 70%, #fff5f5 100%); }
+.offer-hero .section-title { margin-bottom: 12px; }
+.offer-lead { color: #555; font-size: 1.05rem; line-height: 1.7; max-width: 640px; }
+.offer-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; align-items: start; }
+.offer-section { padding: 48px 0; }
+.offer-section h2 { font-family: var(--font-space); font-size: 1.6rem; line-height: 1.2; margin-bottom: 16px; }
+.offer-list { list-style: none; display: grid; gap: 12px; margin: 20px 0 0; padding: 0; }
+.offer-list li { position: relative; padding-left: 28px; color: #444; line-height: 1.6; }
+.offer-list li::before { content: '\2713'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+.offer-form-card { background: #fff; border: 2px solid #f0f0f0; border-radius: 24px; padding: 28px 22px; box-shadow: 0 20px 60px rgba(108,60,233,0.08); }
+.offer-form-card h2 { font-family: var(--font-space); font-size: 1.4rem; margin-bottom: 4px; }
+.offer-form-card p { color: #555; line-height: 1.6; margin-bottom: 16px; }
+.offer-full { display: block; width: 100%; text-align: center; }
+.offer-full:disabled { opacity: 0.7; cursor: wait; transform: none; }
+.offer-small { font-size: 0.82rem; color: #777 !important; margin: 14px 0 0 !important; }
+.offer-small a, .offer-lead a, .offer-faq a { color: var(--primary); font-weight: 600; }
+.offer-error { color: #c62828 !important; font-size: 0.9rem; margin: 12px 0 0 !important; }
+.offer-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.offer-steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.offer-step { background: #fff; border: 2px solid #f0f0f0; border-radius: 20px; padding: 22px; }
+.offer-step span { display: inline-block; font-family: var(--font-space); font-weight: 700; color: var(--primary); font-size: 0.85rem; margin-bottom: 6px; }
+.offer-step h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.offer-step p { color: #666; font-size: 0.92rem; line-height: 1.6; }
+.offer-price-card .price { font-family: var(--font-space); font-size: 2.6rem; font-weight: 700; line-height: 1.1; }
+.offer-price-card .price-sub { color: #777; font-size: 0.9rem; margin-bottom: 20px; }
+.offer-faq { display: grid; gap: 12px; }
+.offer-faq details { background: #fff; border: 2px solid #f0f0f0; border-radius: 16px; padding: 16px 18px; }
+.offer-faq summary { font-weight: 700; cursor: pointer; }
+.offer-faq p { color: #555; line-height: 1.7; margin-top: 10px; }
+.offer-alt { background: var(--light); }
+@media (min-width: 900px) {
+  .offer-hero { padding: 150px 0 64px; }
+  .offer-grid { grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr); gap: 56px; }
+  .offer-section { padding: 72px 0; }
+  .offer-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .offer-form-card { padding: 36px 32px; position: sticky; top: 100px; }
+}

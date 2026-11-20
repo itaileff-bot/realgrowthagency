@@ -14,4 +14,14 @@ export async function register() {
       invalid: report.invalid,
     });
   }
+  const { checkOfferEnv } = await import('./lib/offerEnv');
+  const offers = checkOfferEnv();
+  if (!offers.stripe || !offers.stripeWebhook || !offers.ses || offers.invalid.length > 0) {
+    console.warn('[startup] Offer integrations not fully configured; pages fall back to enquiry mode', {
+      stripeCheckout: offers.stripe,
+      stripeWebhook: offers.stripeWebhook,
+      sesEmail: offers.ses,
+      invalid: offers.invalid,
+    });
+  }
 }
