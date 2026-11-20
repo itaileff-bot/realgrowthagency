@@ -12,6 +12,7 @@
     "admin:hash-password": "node scripts/hash-admin-password.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.1174.0",
     "firebase-admin": "^13.10.0",
     "gray-matter": "^4.0.3",
     "next": "^15.1.0",

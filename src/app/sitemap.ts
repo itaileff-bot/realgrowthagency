@@ -30,6 +30,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/free-website-manual`,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/website-training`,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     ...blogEntries,
   ];
 }

@@ -826,6 +826,8 @@ export default function HomeClient() {
               >
                 Real Growth Bot
               </a>
+              <a href="/free-website-manual">Free Website Manual</a>
+              <a href="/website-training">Website Training</a>
               <a href="/blog">Blog</a>
               <a href="/blog">Case Studies</a>
               <a href="/#contact">Free SEO Audit</a>

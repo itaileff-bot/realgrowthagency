@@ -138,6 +138,8 @@ export default function BlogPage() {
               >
                 Real Growth Bot
               </a>
+              <Link href="/free-website-manual">Free Website Manual</Link>
+              <Link href="/website-training">Website Training</Link>
               <Link href="/blog">Blog</Link>
               <a href="/blog">Case Studies</a>
               <a href="/#contact">Free SEO Audit</a>
