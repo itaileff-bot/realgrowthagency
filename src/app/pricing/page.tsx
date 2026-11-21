@@ -11,7 +11,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/site';
 import '@/styles/site.css';
 
 const title = `Pricing: Websites from ${STARTER_PRICE}`;
-const description = `Clear, one-time prices for a website built for you. A landing page with a customer sign-up form starts at ${STARTER_PRICE}. See exactly what is included.`;
+const description = `Clear, one-time prices for a website built for you. A landing page with up to 3 pages starts at ${STARTER_PRICE}. See exactly what is included.`;
 
 export const metadata: Metadata = {
   title,
@@ -34,10 +34,11 @@ export const metadata: Metadata = {
 };
 
 const NOT_INCLUDED = [
-  'Extra pages beyond the landing page',
-  'Your domain name (web address), quoted in writing before you pay',
+  'More than 3 pages',
+  'Your domain name (web address). Hosting does not cover it',
   'A new logo (see Brand + Website)',
-  'Online stores and booking systems',
+  'An online store. We can connect Shopify for an additional fee',
+  'Booking systems',
   'Professional photography',
 ];
 
@@ -55,8 +56,8 @@ export default function PricingPage() {
             <p className="rg-eyebrow">Pricing</p>
             <h1 className="rg-h1">Clear prices. No surprises.</h1>
             <p className="rg-lead">
-              A landing page for your business, with a customer sign-up form,
-              starts at {STARTER_PRICE}. You get a fixed price in writing
+              A landing page for your business, with up to 3 pages and an
+              optional customer form, starts at {STARTER_PRICE}. You get a fixed price in writing
               before any work begins.
             </p>
             <div className="rg-actions">

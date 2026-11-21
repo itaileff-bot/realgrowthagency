@@ -16,14 +16,14 @@ export const PACKAGES: Package[] = [
     name: 'Landing Page',
     price: STARTER_PRICE,
     summary:
-      'A one-page website for your business, with a customer sign-up form.',
+      'A landing page for your business, with up to 3 pages and an optional customer form.',
     features: [
-      'A landing page (one-page website), built by a real person',
-      'Customer sign-up form that emails you',
+      'A landing page, built by a real person',
+      'Up to 3 pages in total',
+      'Optional customer form that emails you',
       'We write the words with you',
       'Works on phones, tablets and computers',
-      'Set up so Google can find you',
-      `Hosting for ${HOSTING_PRICE}`,
+      `Hosting for ${HOSTING_PRICE} (domain name not included)`,
     ],
     featured: true,
   },
@@ -74,7 +74,7 @@ export type Faq = { q: string; a: string };
 export const FAQS: Faq[] = [
   {
     q: `What do I get for ${STARTER_PRICE}?`,
-    a: 'A finished landing page, which is a one-page website about your business, with a sign-up form your customers can fill in. Each time someone signs up, you get an email. We write the words with you and set it up to work on phones and computers.',
+    a: 'A finished landing page for your business, with up to 3 pages in total. You can add a customer form, and each time someone fills it in, you get an email. We write the words with you and set it up to work on phones and computers.',
   },
   {
     q: 'Do I need to know anything about computers?',
@@ -82,7 +82,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Are there monthly fees?',
-    a: `No monthly fees. The ${STARTER_PRICE} is a one-time price for building your landing page. We host it for you for ${HOSTING_PRICE}. If you need a domain name (your web address), we quote that in writing before you pay anything.`,
+    a: `No monthly fees. The ${STARTER_PRICE} is a one-time price for building your landing page. We host it for you for ${HOSTING_PRICE}. Hosting does not cover your domain name (your web address), which you pay for separately.`,
   },
   {
     q: 'Who owns the website?',
@@ -97,7 +97,11 @@ export const FAQS: Faq[] = [
     a: 'Send us an email and tell us what you want changed. We give you a price before we start, and small updates are usually quick.',
   },
   {
-    q: 'What if I need more than one page, or an online store?',
+    q: 'Can I sell products online?',
+    a: 'Yes. For an additional fee, we connect your website to Shopify so customers can buy from you. Because we build the website, you do not need to buy a Shopify theme.',
+  },
+  {
+    q: 'What if I need more than 3 pages?',
     a: 'Tell us what you need on the free call. We will give you a fixed price in writing before any work begins.',
   },
   {

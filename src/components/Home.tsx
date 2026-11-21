@@ -231,7 +231,7 @@ export default function Home() {
               <div className="rg-tile">
                 <h3>Customers can reach you</h3>
                 <p>
-                  A sign-up form on your page. Each time a customer fills it
+                  Add a customer form to your page. Each time someone fills it
                   in, you get an email.
                 </p>
               </div>
@@ -292,7 +292,7 @@ export default function Home() {
           <div className="rg-wrap">
             <div className="rg-price-hero">
               <p className="rg-eyebrow">
-                A landing page with a customer sign-up form
+                A landing page with up to 3 pages
               </p>
               <p className="rg-price-hero__amount">{starter.price}</p>
               <p className="rg-price-hero__terms">
