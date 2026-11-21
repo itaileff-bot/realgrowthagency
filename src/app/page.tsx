@@ -1,17 +1,22 @@
 import type { Metadata } from 'next';
-import HomeClient from '@/components/HomeClient';
+import Home from '@/components/Home';
 import { jsonLd, SITE_NAME, SITE_URL } from '@/lib/site';
 
+const title = 'Websites Built for You, from $599';
+const description =
+  'A real person builds your business website for you, from $599. No software to learn, no tech talk. Book a free call with Real Growth Agency.';
+
 /**
- * The homepage markup lives in a client component (it drives the navbar and
- * scroll animations), and a client component cannot export metadata. This
- * server page owns the canonical URL and the site-wide structured data.
- *
  * The canonical is declared here, not in the root layout, so it is never
  * inherited by another route.
  */
 export const metadata: Metadata = {
+  // The root layout's title template does not apply to its own page.
+  title: { absolute: `${title} | ${SITE_NAME}` },
+  description,
   alternates: { canonical: '/' },
+  openGraph: { title: `${title} | ${SITE_NAME}`, description, url: SITE_URL },
+  twitter: { title: `${title} | ${SITE_NAME}`, description },
 };
 
 const organizationJsonLd = {
@@ -48,7 +53,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd) }}
       />
-      <HomeClient />
+      <Home />
     </>
   );
 }
