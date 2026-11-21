@@ -11,7 +11,7 @@ import { SITE_NAME, SITE_URL } from '@/lib/site';
 import '@/styles/site.css';
 
 const title = `Pricing: Websites from ${STARTER_PRICE}`;
-const description = `Clear, one-time prices for a website built for you. A complete small business website starts at ${STARTER_PRICE}. See exactly what is included.`;
+const description = `Clear, one-time prices for a website built for you. A landing page with up to 3 pages starts at ${STARTER_PRICE}. See exactly what is included.`;
 
 export const metadata: Metadata = {
   title,
@@ -34,9 +34,11 @@ export const metadata: Metadata = {
 };
 
 const NOT_INCLUDED = [
-  'Your domain name and hosting, quoted in writing before you pay',
+  'More than 3 pages',
+  'Your domain name (web address). Hosting does not cover it',
   'A new logo (see Brand + Website)',
-  'Online stores and booking systems',
+  'An online store. We can connect Shopify for an additional fee',
+  'Booking systems',
   'Professional photography',
 ];
 
@@ -54,8 +56,9 @@ export default function PricingPage() {
             <p className="rg-eyebrow">Pricing</p>
             <h1 className="rg-h1">Clear prices. No surprises.</h1>
             <p className="rg-lead">
-              A complete website for your business starts at {STARTER_PRICE}.
-              You get a fixed price in writing before any work begins.
+              A landing page for your business, with up to 3 pages and an
+              optional customer form, starts at {STARTER_PRICE}. You get a fixed price in writing
+              before any work begins.
             </p>
             <div className="rg-actions">
               <BookCallButton />
@@ -71,8 +74,8 @@ export default function PricingPage() {
             <div className="rg-head">
               <h2 className="rg-h2">Choose what fits.</h2>
               <p className="rg-lead">
-                Most small businesses start with the Website package. Every
-                price is one-time.
+                Most small businesses start with the Landing Page package.
+                Every price is one-time.
               </p>
             </div>
             <div className="rg-packages">
@@ -109,7 +112,7 @@ export default function PricingPage() {
           <div className="rg-wrap">
             <div className="rg-head">
               <h2 className="rg-h2">
-                What the {STARTER_PRICE} website covers.
+                What the {STARTER_PRICE} landing page covers.
               </h2>
               <p className="rg-lead">
                 We would rather tell you now than surprise you later.

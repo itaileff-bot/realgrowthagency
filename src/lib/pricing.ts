@@ -8,20 +8,22 @@ export type Package = {
 };
 
 export const STARTER_PRICE = '$599';
+export const HOSTING_PRICE = '$20 a year';
 
 export const PACKAGES: Package[] = [
   {
     id: 'website',
-    name: 'Website',
+    name: 'Landing Page',
     price: STARTER_PRICE,
-    summary: 'A complete website for your business, built for you.',
+    summary:
+      'A landing page for your business, with up to 3 pages and an optional customer form.',
     features: [
-      'Up to 5 pages, built by a real person',
+      'A landing page, built by a real person',
+      'Up to 3 pages in total',
+      'Optional customer form that emails you',
       'We write the words with you',
       'Works on phones, tablets and computers',
-      'Contact form that emails you',
-      'Set up so Google can find you',
-      '2 rounds of changes before launch',
+      `Hosting for ${HOSTING_PRICE} (domain name not included)`,
     ],
     featured: true,
   },
@@ -31,7 +33,7 @@ export const PACKAGES: Package[] = [
     price: '$1,499',
     summary: 'A new logo and look, plus your website.',
     features: [
-      'Everything in Website',
+      'Everything in Landing Page',
       'Logo and brand kit',
       'Colors and lettering chosen for you',
       'Matching look across every page',
@@ -71,8 +73,8 @@ export type Faq = { q: string; a: string };
 
 export const FAQS: Faq[] = [
   {
-    q: 'What do I get for $599?',
-    a: 'A finished website of up to 5 pages, such as Home, About, Services, Photos and Contact. We write the words with you, set it up to work on phones and computers, add a contact form, and prepare it so Google can find it.',
+    q: `What do I get for ${STARTER_PRICE}?`,
+    a: 'A finished landing page for your business, with up to 3 pages in total. You can add a customer form, and each time someone fills it in, you get an email. We write the words with you and set it up to work on phones and computers.',
   },
   {
     q: 'Do I need to know anything about computers?',
@@ -80,7 +82,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: 'Are there monthly fees?',
-    a: 'The $599 is a one-time price for building your website. Every website also needs a domain name (your web address) and hosting. We quote both in writing before you pay anything, so there are no surprises.',
+    a: `No monthly fees. The ${STARTER_PRICE} is a one-time price for building your landing page. We host it for you for ${HOSTING_PRICE}. Hosting does not cover your domain name (your web address), which you pay for separately.`,
   },
   {
     q: 'Who owns the website?',
@@ -95,7 +97,11 @@ export const FAQS: Faq[] = [
     a: 'Send us an email and tell us what you want changed. We give you a price before we start, and small updates are usually quick.',
   },
   {
-    q: 'What if I need more than 5 pages, or an online store?',
+    q: 'Can I sell products online?',
+    a: 'Yes. For an additional fee, we connect your website to Shopify so customers can buy from you. Because we build the website, you do not need to buy a Shopify theme.',
+  },
+  {
+    q: 'What if I need more than 3 pages?',
     a: 'Tell us what you need on the free call. We will give you a fixed price in writing before any work begins.',
   },
   {
