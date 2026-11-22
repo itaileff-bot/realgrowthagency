@@ -16,13 +16,14 @@ export const PACKAGES: Package[] = [
     name: 'Landing Page',
     price: STARTER_PRICE,
     summary:
-      'A landing page for your business, with up to 3 pages and an optional customer form.',
+      'A landing page for your business, plus 3 more pages and an optional customer form.',
     features: [
       'A landing page, built by a real person',
-      'Up to 3 pages in total',
+      'Plus 3 more pages',
       'Optional customer form that emails you',
       'We write the words with you',
       'Works on phones, tablets and computers',
+      'Set up so Google can find you (SEO and GEO optimized)',
       `Hosting for ${HOSTING_PRICE} (domain name not included)`,
     ],
     featured: true,
@@ -74,7 +75,7 @@ export type Faq = { q: string; a: string };
 export const FAQS: Faq[] = [
   {
     q: `What do I get for ${STARTER_PRICE}?`,
-    a: 'A finished landing page for your business, with up to 3 pages in total. You can add a customer form, and each time someone fills it in, you get an email. We write the words with you and set it up to work on phones and computers.',
+    a: 'A finished landing page for your business, plus 3 more pages. You can add a customer form, and each time someone fills it in, you get an email. We write the words with you, set it up to work on phones and computers, and prepare it so Google and AI search tools can find you (SEO and GEO optimized).',
   },
   {
     q: 'Do I need to know anything about computers?',
@@ -101,7 +102,7 @@ export const FAQS: Faq[] = [
     a: 'Yes. For an additional fee, we connect your website to Shopify so customers can buy from you. Because we build the website, you do not need to buy a Shopify theme.',
   },
   {
-    q: 'What if I need more than 3 pages?',
+    q: 'What if I need more pages?',
     a: 'Tell us what you need on the free call. We will give you a fixed price in writing before any work begins.',
   },
   {

@@ -224,8 +224,8 @@ export default function Home() {
               <div className="rg-tile">
                 <h3>Ready for Google</h3>
                 <p>
-                  Set up so customers searching in your area can find your
-                  business.
+                  Set up so customers can find your business on Google and in
+                  AI search tools. SEO and GEO optimized.
                 </p>
               </div>
               <div className="rg-tile">
@@ -292,7 +292,7 @@ export default function Home() {
           <div className="rg-wrap">
             <div className="rg-price-hero">
               <p className="rg-eyebrow">
-                A landing page with up to 3 pages
+                A landing page plus 3 more pages
               </p>
               <p className="rg-price-hero__amount">{starter.price}</p>
               <p className="rg-price-hero__terms">
