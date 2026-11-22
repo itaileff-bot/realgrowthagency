@@ -6,7 +6,12 @@ import {
   ContactSection,
   FaqList,
 } from '@/components/site/sections';
-import { FAQS, PACKAGES, STARTER_PRICE } from '@/lib/pricing';
+import {
+  FAQS,
+  HOSTING_PRICE,
+  PACKAGES,
+  STARTER_PRICE,
+} from '@/lib/pricing';
 import '@/styles/site.css';
 
 type Work = {
@@ -134,7 +139,10 @@ export default function Home() {
             <ul className="rg-facts">
               <li className="rg-fact">
                 <strong>One price</strong>
-                <span>From {STARTER_PRICE}, agreed in writing before we start.</span>
+                <span>
+                  From {STARTER_PRICE}, agreed in writing. Hosting is{' '}
+                  {HOSTING_PRICE}.
+                </span>
               </li>
               <li className="rg-fact">
                 <strong>Done for you</strong>
@@ -216,15 +224,15 @@ export default function Home() {
               <div className="rg-tile">
                 <h3>Ready for Google</h3>
                 <p>
-                  Set up so customers searching in your area can find your
-                  business.
+                  Set up so customers can find your business on Google and in
+                  AI search tools. SEO and GEO optimized.
                 </p>
               </div>
               <div className="rg-tile">
                 <h3>Customers can reach you</h3>
                 <p>
-                  A contact form that emails you, and a phone button customers
-                  can tap to call.
+                  Add a customer form to your page. Each time someone fills it
+                  in, you get an email.
                 </p>
               </div>
             </div>
@@ -283,7 +291,9 @@ export default function Home() {
         <section className="rg-section rg-alt" id="pricing">
           <div className="rg-wrap">
             <div className="rg-price-hero">
-              <p className="rg-eyebrow">A complete website</p>
+              <p className="rg-eyebrow">
+                A landing page plus 3 more pages
+              </p>
               <p className="rg-price-hero__amount">{starter.price}</p>
               <p className="rg-price-hero__terms">
                 One-time price for the build
