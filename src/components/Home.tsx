@@ -272,7 +272,11 @@ export default function Home() {
                         work.fit === 'logo' ? 'rg-work__logo' : 'rg-work__fill'
                       }
                       src={work.image}
-                      alt=""
+                      alt={
+                        work.fit === 'logo'
+                          ? `${work.name} logo`
+                          : `${work.name} website`
+                      }
                       loading="lazy"
                       style={{ filter: work.filter }}
                     />

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { SiteNav } from '@/components/site/SiteNav';
 import { SiteFooter } from '@/components/site/SiteFooter';
+import { PricingJsonLd } from '@/components/site/PricingJsonLd';
 import {
   BookCallButton,
   ContactSection,
@@ -45,6 +46,7 @@ const NOT_INCLUDED = [
 export default function PricingPage() {
   return (
     <div className="rg">
+      <PricingJsonLd />
       <a href="#main" className="rg-skip">
         Skip to main content
       </a>
